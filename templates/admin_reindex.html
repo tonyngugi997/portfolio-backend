@@ -1,0 +1,272 @@
+{% extends "base.html" %}
+
+{% block title %}Admin — Reindex Content{% endblock %}
+
+{% block extra_css %}
+<style>
+    .reindex-container {
+        min-height: 70vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: var(--spacing-12) var(--spacing-6);
+    }
+
+    .reindex-card {
+        max-width: 600px;
+        width: 100%;
+        background: linear-gradient(135deg, var(--surface-2), var(--surface-1));
+        border: 1px solid var(--border-light);
+        border-radius: var(--radius-2xl);
+        padding: var(--spacing-12);
+        text-align: center;
+        backdrop-filter: blur(10px);
+    }
+
+    .reindex-icon {
+        font-size: 4rem;
+        color: var(--accent-cyan);
+        margin-bottom: var(--spacing-6);
+    }
+
+    .reindex-title {
+        font-family: var(--font-display);
+        font-size: var(--text-2xl);
+        font-weight: 700;
+        margin-bottom: var(--spacing-4);
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+
+    .reindex-description {
+        color: var(--text-3);
+        margin-bottom: var(--spacing-8);
+        font-size: var(--text-sm);
+    }
+
+    .stats-box {
+        background: var(--surface-3);
+        border-radius: var(--radius-xl);
+        padding: var(--spacing-6);
+        margin-bottom: var(--spacing-8);
+        display: flex;
+        justify-content: space-around;
+        gap: var(--spacing-4);
+        flex-wrap: wrap;
+    }
+
+    .stat {
+        text-align: center;
+    }
+
+    .stat-value {
+        font-family: var(--font-mono);
+        font-size: var(--text-2xl);
+        font-weight: 700;
+        color: var(--accent-cyan);
+    }
+
+    .stat-label {
+        font-size: var(--text-xs);
+        color: var(--text-3);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+
+    .reindex-btn {
+        background: var(--gradient-primary);
+        border: none;
+        padding: var(--spacing-4) var(--spacing-8);
+        font-size: var(--text-base);
+        font-weight: 700;
+        color: var(--bg-0);
+        border-radius: var(--radius-full);
+        cursor: pointer;
+        transition: all var(--transition-bounce);
+        display: inline-flex;
+        align-items: center;
+        gap: var(--spacing-3);
+        margin-bottom: var(--spacing-6);
+    }
+
+    .reindex-btn:hover {
+        transform: scale(1.05);
+        box-shadow: var(--shadow-glow-md);
+    }
+
+    .reindex-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+    .status-message {
+        padding: var(--spacing-4);
+        border-radius: var(--radius-lg);
+        font-size: var(--text-sm);
+        margin-top: var(--spacing-4);
+        display: none;
+    }
+
+    .status-success {
+        background: rgba(0, 255, 136, 0.1);
+        border: 1px solid var(--accent-green);
+        color: var(--accent-green);
+    }
+
+    .status-error {
+        background: rgba(255, 0, 85, 0.1);
+        border: 1px solid var(--accent-red);
+        color: var(--accent-red);
+    }
+
+    .status-loading {
+        background: rgba(0, 212, 255, 0.1);
+        border: 1px solid var(--accent-cyan);
+        color: var(--accent-cyan);
+    }
+
+    .warning-text {
+        font-size: var(--text-xs);
+        color: var(--text-4);
+        margin-top: var(--spacing-6);
+        padding-top: var(--spacing-6);
+        border-top: 1px solid var(--border-light);
+    }
+
+    .warning-text i {
+        color: var(--accent-yellow);
+        margin-right: var(--spacing-2);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="reindex-container">
+    <div class="reindex-card" data-aos="fade-up">
+        <div class="reindex-icon">
+            <i class="fas fa-sync-alt"></i>
+        </div>
+        
+        <h1 class="reindex-title">Content Reindexing</h1>
+        <p class="reindex-description">
+            This will scan your markdown files and rebuild the database.<br>
+            Use this after updating or adding new walkthroughs/notes.
+        </p>
+
+        <div class="stats-box" id="statsBox">
+            <div class="stat">
+                <div class="stat-value" id="notesCount">—</div>
+                <div class="stat-label">Notes</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" id="walkthroughsCount">—</div>
+                <div class="stat-label">Walkthroughs</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value" id="lastReindex">—</div>
+                <div class="stat-label">Last Reindex</div>
+            </div>
+        </div>
+
+        <button class="reindex-btn" id="reindexBtn" onclick="startReindex()">
+            <i class="fas fa-database"></i>
+            Reindex All Content
+        </button>
+
+        <div class="status-message" id="statusMessage"></div>
+        
+        <div class="warning-text">
+            <i class="fas fa-exclamation-triangle"></i>
+            This operation may take a few seconds. Your site will remain online during reindexing.
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    async function loadStats() {
+        try {
+            // Load notes count
+            const notesRes = await fetch('/notes/api/stats');
+            if (notesRes.ok) {
+                const notesData = await notesRes.json();
+                document.getElementById('notesCount').textContent = notesData.total || 0;
+            }
+            
+            // Load walkthroughs count
+            const wtRes = await fetch('/walkthroughs/api/stats');
+            if (wtRes.ok) {
+                const wtData = await wtRes.json();
+                document.getElementById('walkthroughsCount').textContent = wtData.total || 0;
+            }
+            
+            // Load last reindex time from localStorage
+            const lastReindex = localStorage.getItem('lastReindexTime');
+            if (lastReindex) {
+                document.getElementById('lastReindex').textContent = new Date(lastReindex).toLocaleTimeString();
+            } else {
+                document.getElementById('lastReindex').textContent = 'Never';
+            }
+        } catch (e) {
+            console.error('Failed to load stats:', e);
+        }
+    }
+    
+    async function startReindex() {
+        const btn = document.getElementById('reindexBtn');
+        const statusDiv = document.getElementById('statusMessage');
+        
+        // Disable button and show loading
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Reindexing...';
+        
+        statusDiv.style.display = 'block';
+        statusDiv.className = 'status-message status-loading';
+        statusDiv.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Reindexing notes and walkthroughs... This may take a moment.';
+        
+        try {
+            const response = await fetch('/admin/api/reindex-all', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            
+            const data = await response.json();
+            
+            if (response.ok && data.status === 'success') {
+                statusDiv.className = 'status-message status-success';
+                statusDiv.innerHTML = '<i class="fas fa-check-circle"></i> ' + data.message;
+                
+                // Update last reindex time
+                localStorage.setItem('lastReindexTime', new Date().toISOString());
+                
+                // Refresh stats
+                setTimeout(loadStats, 1000);
+            } else {
+                throw new Error(data.message || 'Reindex failed');
+            }
+        } catch (error) {
+            statusDiv.className = 'status-message status-error';
+            statusDiv.innerHTML = '<i class="fas fa-exclamation-circle"></i> ' + error.message;
+        } finally {
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fas fa-database"></i> Reindex All Content';
+            
+            // Auto-hide success message after 5 seconds
+            setTimeout(() => {
+                if (statusDiv.className === 'status-message status-success') {
+                    statusDiv.style.display = 'none';
+                }
+            }, 5000);
+        }
+    }
+    
+    // Load stats on page load
+    loadStats();
+</script>
+{% endblock %}

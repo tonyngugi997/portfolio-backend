@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walkthroughs — KenyanCyber</title>
+    <meta name="description" content="Complete CTF, HackTheBox, and VulnHub walkthroughs from KenyanCyber. Detailed exploitation techniques and security lessons.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@700&family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ===== DESIGN SYSTEM ===== */
+        :root {
+            --bg-0: #0a0a0a;
+            --bg-1: #111111;
+            --bg-2: #1a1a1a;
+            --bg-3: #242424;
+            --text-1: #ffffff;
+            --text-2: #e4e4e7;
+            --text-3: #a1a1a6;
+            --accent-cyan: #00d4ff;
+            --accent-magenta: #ff00ff;
+            --accent-red: #ff0055;
+            --accent-green: #00ff88;
+            --accent-yellow: #ffaa44;
+            --border: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg-0);
+            color: var(--text-1);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== BACKGROUND EFFECTS ===== */
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 212, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .glow-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            mix-blend-mode: screen;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .glow-orb-1 {
+            width: 400px;
+            height: 400px;
+            background: rgba(0, 212, 255, 0.08);
+            top: 10%;
+            right: -10%;
+            animation: float1 25s ease-in-out infinite;
+        }
+
+        @keyframes float1 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-100px, 100px); }
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(10, 10, 10, 0.92);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0, 212, 255, 0.05);
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo a {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: 0.1em;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-3);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        main {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid var(--accent-cyan);
+            border-radius: 2rem;
+            font-size: 0.8rem;
+            color: var(--accent-cyan);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .hero h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-2);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
+        }
+
+        /* ===== STATS ===== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(255, 0, 85, 0.05));
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--text-3);
+            letter-spacing: 0.1em;
+        }
+
+        /* ===== FILTERS ===== */
+        .filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--text-3);
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 2rem;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--accent-cyan);
+            color: var(--bg-0);
+            border-color: var(--accent-cyan);
+        }
+
+        /* ===== WALKTHROUGH GRID ===== */
+        .walkthroughs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .walkthrough-card {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(255, 0, 85, 0.05));
+            border: 1px solid var(--border);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .walkthrough-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-red), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .walkthrough-card:hover {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 20px 50px rgba(0, 212, 255, 0.15);
+            transform: translateY(-8px);
+        }
+
+        .walkthrough-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--accent-cyan);
+            opacity: 0.6;
+        }
+
+        .card-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+            color: var(--text-1);
+            flex: 1;
+        }
+
+        .card-subtitle {
+            font-size: 0.85rem;
+            color: var(--text-3);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .card-description {
+            color: var(--text-2);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .card-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            flex-wrap: wrap;
+            font-size: 0.8rem;
+        }
+
+        .meta-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--text-3);
+        }
+
+        .meta-badge i {
+            color: var(--accent-cyan);
+        }
+
+        .difficulty-badge {
+            display: inline-block;
+            padding: 0.3rem 0.75rem;
+            border-radius: 2rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: 1px solid;
+        }
+
+        .difficulty-Easy {
+            background: rgba(0, 255, 136, 0.15);
+            color: var(--accent-green);
+            border-color: var(--accent-green);
+        }
+
+        .difficulty-Medium {
+            background: rgba(255, 170, 0, 0.15);
+            color: var(--accent-yellow);
+            border-color: var(--accent-yellow);
+        }
+
+        .difficulty-Hard {
+            background: rgba(255, 68, 68, 0.15);
+            color: #ff4466;
+            border-color: #ff4466;
+        }
+
+        .difficulty-Insane {
+            background: rgba(255, 0, 85, 0.15);
+            color: var(--accent-red);
+            border-color: var(--accent-red);
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--accent-cyan);
+            padding: 0.3rem 0.7rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            font-weight: 500;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .read-time {
+            font-size: 0.8rem;
+            color: var(--text-3);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .card-link {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all 0.3s ease;
+        }
+
+        .card-link:hover {
+            gap: 0.8rem;
+        }
+
+        /* ===== EMPTY STATE ===== */
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-3);
+        }
+
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .walkthrough-card {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .walkthrough-card:nth-child(1) { animation-delay: 0.05s; }
+        .walkthrough-card:nth-child(2) { animation-delay: 0.1s; }
+        .walkthrough-card:nth-child(3) { animation-delay: 0.15s; }
+        .walkthrough-card:nth-child(4) { animation-delay: 0.2s; }
+        .walkthrough-card:nth-child(5) { animation-delay: 0.25s; }
+        .walkthrough-card:nth-child(6) { animation-delay: 0.3s; }
+
+        /* ===== FOOTER ===== */
+        footer {
+            position: relative;
+            z-index: 1;
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem;
+            margin-top: 5rem;
+            background: rgba(0, 212, 255, 0.02);
+            text-align: center;
+            color: var(--text-3);
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .walkthroughs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .filters {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            main {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-bg"></div>
+    <div class="glow-orb glow-orb-1"></div>
+
+    <header>
+        <div class="nav-bar">
+            <div class="logo">
+                <a href="/">KenyanCyber</a>
+            </div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/projects">Projects</a>
+                <a href="/walkthroughs">Walkthroughs</a>
+                <a href="/notes">Notes</a>
+                <a href="/contact">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <div class="hero-badge">
+                <i class="fas fa-book-open"></i>
+                <span>Detailed CTF & Exploitation Walkthroughs</span>
+            </div>
+            <h1>Hacking Walkthroughs</h1>
+            <p>Deep dives into real-world security challenges. Learn exploitation techniques, privilege escalation, and defensive lessons from CTFs, HackTheBox, and VulnHub machines.</p>
+        </section>
+
+        <!-- STATS -->
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">{{ total_walkthroughs }}</div>
+                <div class="stat-label">Walkthroughs</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">{{ total_views }}</div>
+                <div class="stat-label">Total Views</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">{{ categories_count }}</div>
+                <div class="stat-label">Categories</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">{{ avg_difficulty }}</div>
+                <div class="stat-label">Avg Difficulty</div>
+            </div>
+        </div>
+
+        <!-- FILTERS -->
+        <div class="filters">
+            <div class="filter-label"><i class="fas fa-filter"></i> Filter by:</div>
+            
+            <div class="filter-group">
+                <span class="filter-label">Difficulty:</span>
+                <button class="filter-btn active" data-filter="difficulty" data-value="">All</button>
+                <button class="filter-btn" data-filter="difficulty" data-value="Easy">Easy</button>
+                <button class="filter-btn" data-filter="difficulty" data-value="Medium">Medium</button>
+                <button class="filter-btn" data-filter="difficulty" data-value="Hard">Hard</button>
+                <button class="filter-btn" data-filter="difficulty" data-value="Insane">Insane</button>
+            </div>
+
+            <div class="filter-group">
+                <span class="filter-label">Category:</span>
+                <button class="filter-btn active" data-filter="category" data-value="">All</button>
+                {% for category in categories %}
+                <button class="filter-btn" data-filter="category" data-value="{{ category }}">{{ category|upper }}</button>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- WALKTHROUGHS GRID -->
+        <div class="walkthroughs-grid" id="walkthroughsGrid">
+            {% for walkthrough in walkthroughs %}
+            <div class="walkthrough-card" data-difficulty="{{ walkthrough.difficulty }}" data-category="{{ walkthrough.category }}">
+                <div class="card-header">
+                    <div>
+                        <h3 class="card-title">{{ walkthrough.title }}</h3>
+                        <div class="card-subtitle">
+                            <i class="fas fa-desktop"></i> {{ walkthrough.platform }}
+                        </div>
+                    </div>
+                    <div class="card-icon">
+                        {% if walkthrough.category == 'ctf' %}
+                            <i class="fas fa-flag"></i>
+                        {% elif walkthrough.category == 'htb' %}
+                            <i class="fas fa-cube"></i>
+                        {% elif walkthrough.category == 'vulnhub' %}
+                            <i class="fas fa-bomb"></i>
+                        {% else %}
+                            <i class="fas fa-lock"></i>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <p class="card-description">{{ walkthrough.excerpt }}</p>
+
+                <div class="card-meta">
+                    <div class="meta-badge">
+                        <i class="fas fa-calendar"></i>
+                        <span>{{ walkthrough.completion_date }}</span>
+                    </div>
+                    <div class="difficulty-badge difficulty-{{ walkthrough.difficulty }}">
+                        {{ walkthrough.difficulty }}
+                    </div>
+                    <div class="meta-badge">
+                        <i class="fas fa-eye"></i>
+                        <span>{{ walkthrough.views }} views</span>
+                    </div>
+                </div>
+
+                {% if walkthrough.tags %}
+                <div class="card-tags">
+                    {% for tag in walkthrough.tags|from_json %}
+                    <span class="tag">#{{ tag }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                <div class="card-footer">
+                    <span class="read-time">
+                        <i class="fas fa-book-reader"></i>
+                        {{ (walkthrough.content_md|length / 200)|int }} min read
+                    </span>
+                    <a href="/walkthroughs/{{ walkthrough.slug }}" class="card-link">
+                        Read now
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="empty-state" id="emptyState" style="display: none;">
+            <i class="fas fa-search"></i>
+            <p>No walkthroughs match your filters. Try adjusting your selection.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>KenyanCyber Walkthroughs — Security research and exploitation techniques documented.<br>
+        <a href="/">Home</a> | <a href="/projects">Projects</a> | <a href="/notes">Notes</a> | <a href="/contact">Contact</a></p>
+    </footer>
+
+    <script>
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.walkthrough-card');
+        const emptyState = document.getElementById('emptyState');
+
+        let activeFilters = {
+            difficulty: '',
+            category: ''
+        };
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filterType = btn.dataset.filter;
+                const filterValue = btn.dataset.value;
+
+                // Toggle active state
+                document.querySelectorAll(`[data-filter="${filterType}"]`).forEach(b => {
+                    b.classList.remove('active');
+                });
+                btn.classList.add('active');
+
+                // Update active filter
+                activeFilters[filterType] = filterValue;
+
+                // Apply filters
+                applyFilters();
+            });
+        });
+
+        function applyFilters() {
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const difficulty = card.dataset.difficulty;
+                const category = card.dataset.category;
+
+                const difficultyMatch = !activeFilters.difficulty || difficulty === activeFilters.difficulty;
+                const categoryMatch = !activeFilters.category || category === activeFilters.category;
+
+                if (difficultyMatch && categoryMatch) {
+                    card.style.display = '';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+
+        // Load walkthrough data (this would come from the backend in a real app)
+        // For now, this is handled by Flask template rendering above
+    </script>
+</body>
+</html>

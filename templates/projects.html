@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    
+    <!-- Primary SEO -->
+    <title>Projects | Tony Ngugi (KenyanCyber) — Security Researcher & Full-Stack Developer</title>
+    <meta name="description" content="Production systems I've built: SmarTQue (healthcare queue system), VERIFY (government recruitment platform), BotMa (AI email agent), and weaponize (Android IDE).">
+    <meta name="keywords" content="KenyanCyber, Tony Ngugi, security researcher, Rust developer, Flutter developer, full-stack developer, projects, SmarTQue, VERIFY, BotMa, weaponize">
+    <meta name="author" content="Tony Ngugi (KenyanCyber)">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://kenyancyber.co.ke/projects">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Projects | Tony Ngugi (KenyanCyber)">
+    <meta property="og:description" content="Production systems I've built: healthcare, government, AI, and dev tools.">
+    <meta property="og:url" content="https://kenyancyber.co.ke/projects">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Projects | Tony Ngugi (KenyanCyber)">
+    <meta name="twitter:description" content="Production systems I've built.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;600;700&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ===== DESIGN SYSTEM (Same as homepage, but with visible cursor) ===== */
+        :root {
+            --bg-0: #0a0a0a;
+            --bg-1: #111111;
+            --bg-2: #1a1a1a;
+            --bg-3: #242424;
+            --text-1: #ffffff;
+            --text-2: #e4e4e7;
+            --text-3: #a1a1a6;
+            --accent-cyan: #00d4ff;
+            --accent-magenta: #ff00ff;
+            --accent-red: #ff0055;
+            --accent-green: #00ff88;
+            --border-color: #333333;
+            --glow-color: rgba(0, 212, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg-0);
+            color: var(--text-1);
+            overflow-x: hidden;
+            line-height: 1.6;
+            /* NO custom cursor - visible by default */
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .mono {
+            font-family: 'Space Mono', monospace;
+            letter-spacing: 0.05em;
+        }
+
+        p {
+            color: var(--text-2);
+            line-height: 1.7;
+        }
+
+        /* ===== CONTAINER ===== */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+        }
+
+        /* ===== BACKGROUND EFFECTS ===== */
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .glow-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            mix-blend-mode: screen;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .glow-orb-1 {
+            width: 500px;
+            height: 500px;
+            background: rgba(0, 212, 255, 0.1);
+            top: -200px;
+            right: -200px;
+            animation: float1 20s ease-in-out infinite;
+        }
+
+        .glow-orb-2 {
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 0, 85, 0.08);
+            bottom: -150px;
+            left: -150px;
+            animation: float2 25s ease-in-out infinite;
+        }
+
+        @keyframes float1 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(100px, -100px); }
+        }
+
+        @keyframes float2 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-80px, 80px); }
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(10, 10, 10, 0.92);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0, 212, 255, 0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo a {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: 0.1em;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .logo a:hover {
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-3);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-cyan);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* ===== HERO SECTION (Projects Page) ===== */
+        .hero {
+            position: relative;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            padding: 4rem 0;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid var(--accent-cyan);
+            border-radius: 2rem;
+            font-size: 0.85rem;
+            color: var(--accent-cyan);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            font-family: 'Space Mono', monospace;
+        }
+
+        .hero .highlight {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* ===== PROJECT GRID (Reusable) ===== */
+        .projects-section {
+            position: relative;
+            padding: 4rem 0 6rem;
+            z-index: 1;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(255, 0, 85, 0.05));
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-red), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .project-card:hover {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 20px 50px rgba(0, 212, 255, 0.15);
+            transform: translateY(-8px);
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-title {
+            color: var(--text-1);
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .project-icon {
+            font-size: 2rem;
+            color: var(--accent-cyan);
+            opacity: 0.6;
+        }
+
+        .project-description {
+            color: var(--text-2);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            font-size: 0.75rem;
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--accent-cyan);
+            padding: 0.4rem 0.8rem;
+            border-radius: 2rem;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            font-family: 'Space Mono', monospace;
+        }
+
+        .project-stats {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1rem 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-3);
+        }
+
+        .project-stats span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-stats i {
+            color: var(--accent-cyan);
+        }
+
+        /* ===== MODAL / DETAIL PAGE STYLES ===== */
+        .project-detail {
+            position: relative;
+            padding: 2rem 0 6rem;
+            z-index: 1;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-cyan);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            font-family: 'Space Mono', monospace;
+            transition: gap 0.3s ease;
+        }
+
+        .back-button:hover {
+            gap: 1rem;
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .detail-header {
+            margin-bottom: 2rem;
+        }
+
+        .detail-header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid var(--accent-green);
+            border-radius: 2rem;
+            font-size: 0.8rem;
+            color: var(--accent-green);
+            margin-top: 1rem;
+        }
+
+        .detail-status.confidential {
+            background: rgba(255, 0, 85, 0.1);
+            border-color: var(--accent-red);
+            color: var(--accent-red);
+        }
+
+        .detail-section {
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .detail-section h3 {
+            color: var(--accent-cyan);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tech-stack-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .tech-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            min-width: 80px;
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-4px);
+        }
+
+        .tech-item i {
+            font-size: 2rem;
+            color: var(--accent-cyan);
+        }
+
+        .tech-item span {
+            font-size: 0.8rem;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .lesson-item {
+            padding: 1rem;
+            background: rgba(0, 212, 255, 0.03);
+            border-left: 2px solid var(--accent-cyan);
+            margin-bottom: 0.8rem;
+        }
+
+        .link-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .link-btn {
+            padding: 0.8rem 1.5rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid var(--accent-cyan);
+            border-radius: 0.5rem;
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .link-btn:hover {
+            background: var(--accent-cyan);
+            color: var(--bg-0);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .detail-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                gap: 1.5rem;
+            }
+            
+            .hero {
+                min-height: auto;
+                padding: 3rem 0;
+            }
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            position: relative;
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 0;
+            background: rgba(10, 10, 10, 0.8);
+            z-index: 1;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .copyright {
+            color: var(--text-3);
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-3);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-cyan);
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-bg"></div>
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">KenyanCyber</a>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html#about">About</a>
+                <a href="index.html#skills">Skills</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="app">
+        <!-- This will be dynamically rendered based on URL hash / selected project -->
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="copyright">
+                    © 2024 Tony Ngugi (KenyanCyber) — <span class="mono">security that ships</span>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="#" onclick="showProjectsList(); return false;">Projects</a>
+                    <a href="index.html#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ============================================
+        // PROJECT DATA (Full details for each project)
+        // ============================================
+        const projectsData = {
+            'smartque': {
+                id: 'smartque',
+                name: 'SmarTQue',
+                tagline: 'Smart Hospital Queue Management System',
+                status: 'Production',
+                statusType: 'live',
+                icon: 'fa-hospital-user',
+                overview: 'SmarTQue is a full-stack healthcare queue management platform that lets patients book appointments, track queue positions in real-time, and pay via M-Pesa. Built for Kenyan healthcare providers, this system digitizes the entire patient journey from registration to checkout.',
+                technical: 'The system uses a Flask backend with SQLite (production-ready to migrate to PostgreSQL) and a Flutter frontend for cross-platform mobile. Authentication is handled via JWT with OTP email verification. Real-time queue positioning uses polling every 8 seconds with optimistic updates. The M-Pesa Daraja STK Push integration handles payments asynchronously with callback webhooks. Admin dashboard provides full CRUD for appointments, user management, and analytics.',
+                techStack: [
+                    { name: 'Python', icon: 'fab fa-python' },
+                    { name: 'Flask', icon: 'fas fa-flask' },
+                    { name: 'Flutter', icon: 'fab fa-flutter' },
+                    { name: 'Dart', icon: 'fab fa-dart' },
+                    { name: 'SQLite', icon: 'fas fa-database' },
+                    { name: 'Railway', icon: 'fas fa-cloud' },
+                    { name: 'Render', icon: 'fas fa-server' },
+                    { name: 'M-Pesa', icon: 'fas fa-money-bill-wave' }
+                ],
+                lessons: [
+                    'Real-time queue positioning needs optimistic updates + server confirmation to feel responsive',
+                    'M-Pesa STK Push requires proper callback handling with idempotency keys (no shortcuts)',
+                    'Healthcare systems demand HIPAA-level thinking even when not required by law',
+                    'Mobile dev on Android requires Termux + ADB debugging setup for native testing',
+                    'WebSockets would provide better battery life than polling for v2'
+                ],
+                links: {
+                    demo: 'https://smartque.railway.app',
+                    github: 'https://github.com/tonyngugi997/smartque',
+                    api: 'https://smartque.railway.app/api/docs'
+                }
+            },
+            'verify': {
+                id: 'verify',
+                name: 'VERIFY',
+                tagline: 'Government Recruitment Management System',
+                status: 'Confidential - Government Client',
+                statusType: 'confidential',
+                icon: 'fa-shield-alt',
+                overview: 'A comprehensive recruitment management system for public sector mass hiring. Handles applicant verification, cohort management, multi-role access control, and audit logging. Currently deployed for a county government in Kenya processing thousands of applicants.',
+                technical: 'Flask backend with SQLite (scales vertically for government workloads). Role-based access control with 4 tiers (applicant, reviewer, approver, admin). Batch applicant processing with pagination. Excel import/export for legacy compatibility. Full audit logging for compliance. Deployed on PythonAnywhere with dedicated database instance.',
+                techStack: [
+                    { name: 'Python', icon: 'fab fa-python' },
+                    { name: 'Flask', icon: 'fas fa-flask' },
+                    { name: 'SQLite', icon: 'fas fa-database' },
+                    { name: 'HTML/CSS', icon: 'fab fa-html5' },
+                    { name: 'PythonAnywhere', icon: 'fas fa-cloud' }
+                ],
+                lessons: [
+                    'Government requirements change mid-project — build flexible, not brittle',
+                    'Audit logs are non-negotiable for public sector work',
+                    'Batch processing 10,000+ applicants needs pagination + background jobs',
+                    'Excel export/import is always requested (even in 2024)',
+                    'User training matters more than code quality for adoption'
+                ],
+                links: {
+                    demo: null,
+                    github: null,
+                    api: null
+                }
+            },
+            'botma': {
+                id: 'botma',
+                name: 'BotMa',
+                tagline: 'Multi-Agent Email Automation System',
+                status: 'Live Demo',
+                statusType: 'live',
+                icon: 'fa-robot',
+                overview: 'BotMa is a multi-agent AI system that monitors email inboxes, intelligently classifies content, takes autonomous actions, and continuously learns from feedback. Built for business automation and customer support workflows.',
+                technical: 'Python-based agent architecture with LLM integration for natural language understanding. Each email is classified by intent, routed to specialized agents (support, sales, billing), and actions are triggered via webhooks. Feedback loops enable continuous learning. Deployed on PythonAnywhere with scheduled cron jobs for inbox polling.',
+                techStack: [
+                    { name: 'Python', icon: 'fab fa-python' },
+                    { name: 'LLM/AI', icon: 'fas fa-brain' },
+                    { name: 'Flask', icon: 'fas fa-flask' },
+                    { name: 'PythonAnywhere', icon: 'fas fa-cloud' }
+                ],
+                lessons: [
+                    'LLM classification needs confidence thresholds and human fallbacks',
+                    'Email parsing is harder than it looks (HTML, attachments, threading)',
+                    'Rate limiting and queueing are essential for production agents',
+                    'User feedback loops dramatically improve accuracy over time',
+                    'Simple rule-based agents often outperform complex LLMs for specific tasks'
+                ],
+                links: {
+                    demo: 'https://botma.pythonanywhere.com',
+                    github: 'https://github.com/tonyngugi997/BotMa',
+                    api: 'https://botma.pythonanywhere.com/api/docs'
+                }
+            },
+            'weaponize': {
+                id: 'weaponize',
+                name: 'Weaponize',
+                tagline: 'Turn Your Android Into a Development IDE',
+                status: 'Open Source',
+                statusType: 'live',
+                icon: 'fa-mobile-alt',
+                overview: 'Weaponize transforms your Android phone into a professional development environment. A complete Neovim configuration with LSP servers, autocompletion, Git integration, and treesitter — all running natively in Termux.',
+                technical: 'Lua-based Neovim configuration using lazy.nvim as plugin manager. Includes Mason for LSP server installation (pyright, tsserver, lua_ls, rust_analyzer), nvim-cmp for autocompletion, Telescope for fuzzy finding, and Catppuccin theme. Indentation guides, auto-pairing, and gitsigns complete the IDE experience.',
+                techStack: [
+                    { name: 'Lua', icon: 'fas fa-code' },
+                    { name: 'Neovim', icon: 'fas fa-terminal' },
+                    { name: 'Termux', icon: 'fab fa-android' },
+                    { name: 'Bash', icon: 'fas fa-terminal' }
+                ],
+                lessons: [
+                    'Mobile development requires different ergonomics (Termux keyboard is limiting)',
+                    'LSP servers on ARM Android need custom builds or Mason fallbacks',
+                    'Plugin configuration should be modular for easy maintenance',
+                    'Documentation is the most important feature for developer tools',
+                    'The Android filesystem (scoped storage) requires workarounds'
+                ],
+                links: {
+                    demo: null,
+                    github: 'https://github.com/tonyngugi997/weaponize',
+                    api: null
+                }
+            }
+        };
+
+        // ============================================
+        // RENDER FUNCTIONS
+        // ============================================
+        function showProjectsList() {
+            const app = document.getElementById('app');
+            const projects = ['smartque', 'verify', 'botma', 'weaponize'];
+            
+            app.innerHTML = `
+                <section class="hero">
+                    <div class="container">
+                        <div class="hero-content">
+                            <div class="hero-badge">
+                                <i class="fas fa-code-branch"></i>
+                                <span>SHIPPED SYSTEMS</span>
+                            </div>
+                            <h1>
+                                Production <span class="highlight">projects</span><br>
+                                that actually <span class="highlight">ship</span>
+                            </h1>
+                            <p class="hero-description">
+                                From healthcare queue systems to government recruitment platforms — 
+                                every project here is live, deployed, and solving real problems.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="projects-section">
+                    <div class="container">
+                        <div class="projects-grid" id="projectsGrid">
+                            ${projects.map(id => renderProjectCard(projectsData[id])).join('')}
+                        </div>
+                    </div>
+                </section>
+            `;
+            
+            // Attach click handlers to cards
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.addEventListener('click', (e) => {
+                    // Don't trigger if clicking on a link inside
+                    if (e.target.tagName === 'A') return;
+                    const projectId = card.dataset.project;
+                    showProjectDetail(projectId);
+                });
+            });
+            
+            // Update URL without reload
+            window.history.pushState({}, '', '/projects');
+        }
+        
+        function renderProjectCard(project) {
+            return `
+                <div class="project-card" data-project="${project.id}">
+                    <div class="project-header">
+                        <h3 class="project-title">${project.name}</h3>
+                        <i class="fas ${project.icon} project-icon"></i>
+                    </div>
+                    <p class="project-description">${project.tagline}</p>
+                    <div class="project-tech">
+                        ${project.techStack.slice(0, 4).map(t => `<span class="tech-tag">${t.name}</span>`).join('')}
+                    </div>
+                    <div class="project-stats">
+                        <span><i class="fas ${project.statusType === 'live' ? 'fa-circle' : 'fa-lock'}"></i> ${project.status}</span>
+                    </div>
+                    <a href="#" onclick="event.stopPropagation(); showProjectDetail('${project.id}'); return false;" class="project-link">
+                        View details <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            `;
+        }
+        
+        function showProjectDetail(projectId) {
+            const project = projectsData[projectId];
+            if (!project) return;
+            
+            const app = document.getElementById('app');
+            
+            app.innerHTML = `
+                <section class="project-detail">
+                    <div class="container">
+                        <a href="#" onclick="showProjectsList(); return false;" class="back-button">
+                            <i class="fas fa-arrow-left"></i> Back to projects
+                        </a>
+                        
+                        <div class="detail-header">
+                            <h1>${project.name}</h1>
+                            <p style="font-size: 1.2rem; color: var(--text-2); margin-bottom: 1rem;">${project.tagline}</p>
+                            <div class="detail-status ${project.statusType === 'confidential' ? 'confidential' : ''}">
+                                <i class="fas ${project.statusType === 'live' ? 'fa-circle' : (project.statusType === 'confidential' ? 'fa-lock' : 'fa-code-branch')}"></i>
+                                ${project.status}
+                            </div>
+                        </div>
+                        
+                        <div class="detail-grid">
+                            <div>
+                                <div class="detail-section">
+                                    <h3><i class="fas fa-info-circle"></i> Overview</h3>
+                                    <p>${project.overview}</p>
+                                </div>
+                                
+                                <div class="detail-section">
+                                    <h3><i class="fas fa-microchip"></i> Technical Details</h3>
+                                    <p>${project.technical}</p>
+                                </div>
+                                
+                                <div class="detail-section">
+                                    <h3><i class="fas fa-graduation-cap"></i> What I Learned</h3>
+                                    ${project.lessons.map(lesson => `<div class="lesson-item">${lesson}</div>`).join('')}
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="detail-section">
+                                    <h3><i class="fas fa-code"></i> Tech Stack</h3>
+                                    <div class="tech-stack-grid">
+                                        ${project.techStack.map(tech => `
+                                            <div class="tech-item">
+                                                <i class="${tech.icon}"></i>
+                                                <span>${tech.name}</span>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                                
+                                <div class="detail-section">
+                                    <h3><i class="fas fa-link"></i> Links</h3>
+                                    <div class="link-buttons">
+                                        ${project.links.demo ? `<a href="${project.links.demo}" target="_blank" class="link-btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>` : ''}
+                                        ${project.links.github ? `<a href="${project.links.github}" target="_blank" class="link-btn"><i class="fab fa-github"></i> GitHub</a>` : ''}
+                                        ${project.links.api ? `<a href="${project.links.api}" target="_blank" class="link-btn"><i class="fas fa-book"></i> API Docs</a>` : ''}
+                                        ${!project.links.demo && !project.links.github ? '<p style="color: var(--text-3);">Links available upon request (confidential client)</p>' : ''}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `;
+            
+            // Update URL
+            window.history.pushState({}, '', `/projects/${projectId}`);
+        }
+        
+        // ============================================
+        // ROUTING BASED ON URL
+        // ============================================
+        function route() {
+            const path = window.location.pathname;
+            
+            if (path === '/' || path === '/index.html') {
+                // Redirect to projects page (or you could load homepage)
+                showProjectsList();
+            } else if (path.startsWith('/projects/')) {
+                const projectId = path.split('/projects/')[1];
+                if (projectsData[projectId]) {
+                    showProjectDetail(projectId);
+                } else {
+                    showProjectsList();
+                }
+            } else {
+                showProjectsList();
+            }
+        }
+        
+        // Handle browser back/forward
+        window.addEventListener('popstate', route);
+        
+        // Initialize
+        route();
+    </script>
+</body>
+</html>

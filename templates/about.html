@@ -1,0 +1,1615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    
+    <!-- PRIMARY SEO (60 chars) -->
+    <title>Tony Ngugi (KenyanCyber) | Security Researcher & Developer</title>
+    
+    <!-- META DESCRIPTION (150-160 chars) -->
+    <meta name="description" content="From banned from the computer lab to building government systems. Security researcher, full-stack developer, and student at Muranga University of Technology. Based in Kenya.">
+    
+    <!-- KEYWORDS -->
+    <meta name="keywords" content="Tony Ngugi, KenyanCyber, security researcher, full-stack developer, Muranga University of Technology, Michinda Boys High School, Flask, Flutter, Rust, M-Pesa, Neovim, Termux, Kenya, Nakuru">
+    
+    <meta name="author" content="Tony Ngugi (KenyanCyber)">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    
+    <!-- CANONICAL -->
+    <link rel="canonical" href="https://kenyancyber.co.ke/about">
+    
+    <!-- OPEN GRAPH (Social Media) -->
+    <meta property="og:title" content="Tony Ngugi (KenyanCyber) | Security Researcher">
+    <meta property="og:description" content="From banned from the computer lab to building government systems. Security researcher & developer from Kenya.">
+    <meta property="og:url" content="https://kenyancyber.co.ke/about">
+    <meta property="og:type" content="profile">
+    <meta property="og:image" content="https://kenyancyber.co.ke/assets/og-image.jpg">
+    <meta property="profile:first_name" content="Tony">
+    <meta property="profile:last_name" content="Ngugi">
+    <meta property="profile:username" content="KenyanCyber">
+    
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tony Ngugi (KenyanCyber) | Security Researcher">
+    <meta name="twitter:description" content="From banned from the computer lab to building government systems. Security researcher & developer from Kenya.">
+    <meta name="twitter:site" content="@kenyancyber">
+    <meta name="twitter:image" content="https://kenyancyber.co.ke/assets/twitter-image.jpg">
+    
+    <!-- STRUCTURED DATA (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Tony Ngugi",
+        "alternateName": "KenyanCyber",
+        "jobTitle": "Security Researcher & Full-Stack Developer",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Mavic Business Solutions"
+        },
+        "alumniOf": [
+            {
+                "@type": "EducationalOrganization",
+                "name": "Muranga University of Technology"
+            },
+            {
+                "@type": "EducationalOrganization",
+                "name": "Michinda Boys High School"
+            }
+        ],
+        "homeLocation": {
+            "@type": "City",
+            "name": "Nakuru, Kenya"
+        },
+        "url": "https://kenyancyber.co.ke",
+        "sameAs": [
+            "https://github.com/tonyngugi997",
+            "https://twitter.com/kenyancyber"
+        ],
+        "knowsAbout": ["Python", "Flask", "Flutter", "Dart", "Rust", "M-Pesa API", "Neovim", "Termux", "Security Research"],
+        "description": "From banned from the computer lab to building systems for county government. Security researcher and full-stack developer based in Kenya."
+    }
+    </script>
+    
+    <!-- BREADCRUMB STRUCTURED DATA -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://kenyancyber.co.ke"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "About",
+                "item": "https://kenyancyber.co.ke/about"
+            }
+        ]
+    }
+    </script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;600;700;800&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Library for scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* ===== DESIGN SYSTEM ===== */
+        :root {
+            --bg-0: #0a0a0a;
+            --bg-1: #111111;
+            --bg-2: #1a1a1a;
+            --bg-3: #242424;
+            --text-1: #ffffff;
+            --text-2: #e4e4e7;
+            --text-3: #a1a1a6;
+            --accent-cyan: #00d4ff;
+            --accent-magenta: #ff00ff;
+            --accent-red: #ff0055;
+            --accent-green: #00ff88;
+            --accent-purple: #a855f7;
+            --accent-orange: #f97316;
+            --border-color: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg-0);
+            color: var(--text-1);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-cyan);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-green);
+        }
+
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-cyan), transparent);
+        }
+
+        h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .mono {
+            font-family: 'Space Mono', monospace;
+            letter-spacing: 0.05em;
+        }
+
+        p {
+            color: var(--text-2);
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        @media (max-width: 640px) {
+            .container { padding: 0 1.5rem; }
+        }
+
+        /* Background Effects */
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .glow-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            mix-blend-mode: screen;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .glow-orb-1 {
+            width: 500px;
+            height: 500px;
+            background: rgba(0, 212, 255, 0.1);
+            top: -200px;
+            right: -200px;
+            animation: float1 20s ease-in-out infinite;
+        }
+
+        .glow-orb-2 {
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 0, 85, 0.08);
+            bottom: -150px;
+            left: -150px;
+            animation: float2 25s ease-in-out infinite;
+        }
+
+        .glow-orb-3 {
+            width: 350px;
+            height: 350px;
+            background: rgba(0, 255, 136, 0.06);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: float3 30s ease-in-out infinite;
+        }
+
+        @keyframes float1 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(100px, -100px); }
+        }
+
+        @keyframes float2 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-80px, 80px); }
+        }
+
+        @keyframes float3 {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.2); }
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(10, 10, 10, 0.92);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo a {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 800;
+            text-decoration: none;
+            letter-spacing: 0.1em;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green), var(--accent-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .logo a:hover {
+            filter: brightness(1.2);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-3);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-cyan);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { gap: 1.5rem; }
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            padding: 4rem 0;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid var(--accent-cyan);
+            border-radius: 2rem;
+            font-size: 0.85rem;
+            color: var(--accent-cyan);
+            margin-bottom: 1.5rem;
+            font-family: 'Space Mono', monospace;
+            backdrop-filter: blur(10px);
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green), var(--accent-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent-cyan);
+            font-family: 'Space Mono', monospace;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-3);
+        }
+
+        /* Section Base */
+        .section {
+            position: relative;
+            padding: 5rem 0;
+            z-index: 1;
+        }
+
+        .section-dark {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.02), rgba(255, 0, 85, 0.02));
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* Timeline (Origin Story) */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            margin-top: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent-cyan), var(--accent-purple), var(--accent-green));
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -11px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: var(--bg-0);
+            border: 2px solid var(--accent-cyan);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover::before {
+            background: var(--accent-cyan);
+            box-shadow: 0 0 15px var(--accent-cyan);
+        }
+
+        .timeline-year {
+            font-family: 'Space Mono', monospace;
+            color: var(--accent-cyan);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-text {
+            color: var(--text-2);
+            font-size: 0.95rem;
+        }
+
+        /* Image Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            aspect-ratio: 1 / 1;
+        }
+
+        .gallery-item:hover {
+            border-color: var(--accent-cyan);
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+        }
+
+        .gallery-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--bg-2), var(--bg-3));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            color: var(--text-3);
+        }
+
+        .gallery-placeholder i {
+            font-size: 3rem;
+            color: var(--accent-cyan);
+            opacity: 0.5;
+        }
+
+        .gallery-placeholder span {
+            font-size: 0.8rem;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 0.5rem;
+            text-align: center;
+            font-size: 0.7rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .skill-card {
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-4px);
+        }
+
+        .skill-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-header i {
+            font-size: 2rem;
+            color: var(--accent-cyan);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .skill-tag {
+            font-size: 0.75rem;
+            padding: 0.3rem 0.8rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 2rem;
+            font-family: 'Space Mono', monospace;
+        }
+
+        /* Philosophy Cards */
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .philosophy-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .philosophy-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-4px);
+        }
+
+        .philosophy-icon {
+            font-size: 2.5rem;
+            color: var(--accent-cyan);
+            margin-bottom: 1rem;
+        }
+
+        .philosophy-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .philosophy-text {
+            font-size: 0.9rem;
+            color: var(--text-3);
+        }
+
+        /* Quote */
+        .quote-block {
+            text-align: center;
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(168, 85, 247, 0.05));
+            border-radius: 1rem;
+            border: 1px solid var(--border-color);
+            margin: 2rem 0;
+        }
+
+        .quote-text {
+            font-size: 1.5rem;
+            font-style: italic;
+            font-family: 'Syne', sans-serif;
+            color: var(--text-1);
+        }
+
+        .quote-author {
+            margin-top: 1rem;
+            color: var(--accent-cyan);
+            font-family: 'Space Mono', monospace;
+        }
+
+        /* Contact Bar */
+        .contact-bar {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid var(--accent-cyan);
+            border-radius: 0.5rem;
+            color: var(--accent-cyan);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            background: var(--accent-cyan);
+            color: var(--bg-0);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 212, 255, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            position: relative;
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 0;
+            background: rgba(10, 10, 10, 0.8);
+            z-index: 1;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .copyright {
+            color: var(--text-3);
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-3);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        /* Animation Classes */
+        [data-aos] {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        [data-aos].aos-animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .section { padding: 3rem 0; }
+            .quote-text { font-size: 1.2rem; }
+            .hero-stats { justify-content: center; }
+        }
+        /* ===== ACKNOWLEDGMENT SECTION ===== */
+.acknowledgment {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(255, 0, 85, 0.05));
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin: 3rem 0;
+    position: relative;
+}
+
+.acknowledgment-card {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem;
+    background: rgba(0, 212, 255, 0.05);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.acknowledgment-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-red));
+}
+
+.acknowledgment-card:hover {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 10px 40px rgba(0, 212, 255, 0.15);
+}
+
+.acknowledgment-icon {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.acknowledgment-icon i {
+    font-size: 3rem;
+    color: var(--accent-cyan);
+    opacity: 0.8;
+}
+
+.acknowledgment-content h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--text-1);
+}
+
+.acknowledgment-content p {
+    color: var(--text-2);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.acknowledgment-content p strong {
+    color: var(--accent-cyan);
+}
+
+.acknowledgment-bold {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: rgba(0, 212, 255, 0.1);
+    border-radius: 0.5rem;
+    border-left: 3px solid var(--accent-cyan);
+}
+
+.acknowledgment-signature {
+    text-align: right;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--border);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--text-3);
+}
+
+.acknowledgment-quote {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 0.5rem;
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    font-size: 0.85rem;
+    color: var(--text-3);
+    font-style: italic;
+}
+
+.acknowledgment-quote i {
+    color: var(--accent-cyan);
+    font-size: 1rem;
+    margin-top: 0.2rem;
+}
+
+@media (max-width: 768px) {
+    .acknowledgment-card {
+        padding: 2rem;
+    }
+    
+    .acknowledgment-content h3 {
+        font-size: 1.25rem;
+    }
+    
+    .acknowledgment-bold {
+        font-size: 0.95rem;
+    }
+}
+/* ===== PARENT ACKNOWLEDGMENT — GOD-TIER SECTION ===== */
+.parent-acknowledgment {
+    padding: 6rem 0;
+    background: radial-gradient(circle at 50% 0%, rgba(0, 212, 255, 0.15), rgba(10, 10, 10, 1));
+    position: relative;
+    overflow: hidden;
+}
+
+.parent-acknowledgment::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.05) 0%, transparent 70%);
+    animation: rotateBg 30s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes rotateBg {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.parent-card {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(255, 0, 85, 0.05));
+    border: 2px solid rgba(0, 212, 255, 0.3);
+    border-radius: 2rem;
+    padding: 3rem;
+    position: relative;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 212, 255, 0.2);
+    transition: all 0.4s ease;
+}
+
+.parent-card:hover {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 30px 60px rgba(0, 212, 255, 0.25);
+}
+
+.parent-glow {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-red), var(--accent-green));
+    border-radius: 2rem;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -2;
+}
+
+.parent-card:hover .parent-glow {
+    opacity: 0.15;
+}
+
+.parent-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.parent-crown {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.parent-crown i {
+    font-size: 1.8rem;
+    color: #ffd700;
+    text-shadow: 0 0 10px #ffd700;
+    animation: crownFloat 2s ease-in-out infinite;
+}
+
+.parent-crown i:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.parent-crown i:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes crownFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.parent-header h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #ffd700, var(--accent-cyan));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.parent-subtitle {
+    color: var(--text-3);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.9rem;
+}
+
+/* Parent Images Grid */
+.parent-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    margin: 3rem 0;
+}
+
+.parent-image-card {
+    text-align: center;
+    position: relative;
+}
+
+.image-frame {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--accent-cyan);
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.image-frame:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 50px rgba(0, 212, 255, 0.6);
+}
+
+.image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.3), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.image-frame:hover .image-glow {
+    opacity: 1;
+}
+
+.image-caption h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-1);
+    margin-bottom: 0.5rem;
+}
+
+.image-caption p {
+    font-size: 0.85rem;
+    color: var(--text-2);
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.parent-badge {
+    display: inline-block;
+    background: rgba(0, 212, 255, 0.2);
+    color: var(--accent-cyan);
+    padding: 0.25rem 0.75rem;
+    border-radius: 2rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    font-family: 'Space Mono', monospace;
+    border: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+/* Testimonial */
+.parent-testimonial {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 1rem;
+    padding: 2rem;
+    margin: 3rem 0;
+    position: relative;
+    border-left: 4px solid var(--accent-cyan);
+}
+
+.parent-testimonial i {
+    font-size: 2rem;
+    color: var(--accent-cyan);
+    opacity: 0.5;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+.parent-testimonial p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-2);
+    font-style: italic;
+    padding-left: 2rem;
+}
+
+.parent-testimonial p strong {
+    color: var(--accent-cyan);
+    font-style: normal;
+}
+
+.testimonial-author {
+    text-align: right;
+    margin-top: 1rem;
+    padding-left: 2rem;
+}
+
+.testimonial-author span:first-child {
+    color: var(--accent-green);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.testimonial-author .author-title {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-3);
+    margin-top: 0.25rem;
+}
+
+/* Cyber Cafe Stats */
+.cyber-cafe-stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(0, 212, 255, 0.05);
+    border-radius: 1rem;
+}
+
+.cyber-cafe-stats .stat {
+    text-align: center;
+}
+
+.cyber-cafe-stats .stat-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #ffd700;
+    display: block;
+    font-family: 'Syne', sans-serif;
+}
+
+.cyber-cafe-stats .stat-label {
+    font-size: 0.7rem;
+    color: var(--text-3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Parent Swear */
+.parent-swear {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1rem;
+    border-top: 1px solid rgba(0, 212, 255, 0.2);
+    padding-top: 2rem;
+}
+
+.parent-swear i {
+    font-size: 1.8rem;
+    color: var(--accent-red);
+    margin-right: 0.75rem;
+}
+
+.parent-swear span {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-1);
+    letter-spacing: -0.3px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .parent-card {
+        padding: 1.5rem;
+    }
+    
+    .parent-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .parent-images {
+        gap: 2rem;
+    }
+    
+    .image-frame {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .parent-testimonial p {
+        font-size: 0.9rem;
+        padding-left: 1.5rem;
+    }
+    
+    .cyber-cafe-stats {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="grid-bg"></div>
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+    <div class="glow-orb glow-orb-3"></div>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="/">KenyanCyber</a>
+            </div>
+            <nav class="nav-links">
+                <a href="/">Home</a>
+                <a href="/projects">Projects</a>
+                <a href="/about">About</a>
+                <a href="/skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-badge" data-aos="fade-up">
+                    <i class="fas fa-terminal"></i>
+                    <span>SECURITY RESEARCHER & FULL-STACK DEVELOPER</span>
+                </div>
+                <h1 data-aos="fade-up" data-aos-delay="100">
+                    From <span class="highlight">banned</span> from the<br>
+                    computer lab to building<br>
+                    <span class="highlight">government systems</span>
+                </h1>
+                <p style="font-size: 1.2rem; max-width: 700px;" data-aos="fade-up" data-aos-delay="200">
+                    Security researcher, full-stack developer, and student at Muranga University of Technology. 
+                    I build production systems for public sector clients and healthcare providers.
+                </p>
+                <div class="hero-stats" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-item">
+                        <div class="stat-number">17</div>
+                        <div class="stat-label">GitHub Repos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">Production Systems</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1</div>
+                        <div class="stat-label">Gov Client (Active)</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Years Coding</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ORIGIN STORY TIMELINE -->
+        <section class="section section-dark">
+            <div class="container">
+                <h2 data-aos="fade-right">Origin Story</h2>
+                <div class="timeline">
+                    <div class="timeline-item" data-aos="fade-up">
+                        <div class="timeline-year">2017 — 2020</div>
+                        <div class="timeline-title">Michinda Boys High School</div>
+                        <div class="timeline-text">Chairman of the ICT Club. Also got banned from the computer lab — let's just say I took "hacking" seriously back then. Not exactly ethical. Learned a lot about what not to do.</div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="timeline-year">School Holidays</div>
+                        <div class="timeline-title">The Cyber Cafe Years</div>
+                        <div class="timeline-text">No PC at home. I'd walk to the local cyber cafe, pay for computer time, and practice Linux using online platforms like OnWorks and Linode. Terminal over a cafe connection. Every holiday. Every chance I got.</div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="timeline-year">The Turning Point</div>
+                        <div class="timeline-title">From Hacking to Building</div>
+                        <div class="timeline-text">Realized breaking into systems was less valuable than building them. Switched from exploiting to defending. From hacking to shipping.</div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="timeline-year">2021 — Present</div>
+                        <div class="timeline-title">Muranga University of Technology</div>
+                        <div class="timeline-text">Currently pursuing studies while building production systems for government and healthcare clients.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PHOTO GALLERY -->
+        <section class="section">
+            <div class="container">
+                <h2 data-aos="fade-right">Moments</h2>
+                <div class="gallery">
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="0">
+                        <div class="gallery-placeholder">
+                            <i class="fas fa-code"></i>
+                            <span>Termux Setup</span>
+                        </div>
+                        <div class="gallery-caption">Coding on my phone — Weaponize in action</div>
+                    </div>
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="gallery-placeholder">
+                            <i class="fas fa-laptop-code"></i>
+                            <span>Cyber Cafe Days</span>
+                        </div>
+                        <div class="gallery-caption">Where it all started — practicing Linux</div>
+                    </div>
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="gallery-placeholder">
+                            <i class="fas fa-university"></i>
+                            <span>MUT Campus</span>
+                        </div>
+                        <div class="gallery-caption">Muranga University of Technology</div>
+                    </div>
+                    <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="gallery-placeholder">
+                            <i class="fas fa-microphone-alt"></i>
+                            <span>ICT Club</span>
+                        </div>
+                        <div class="gallery-caption">Michinda Boys — Chairman of ICT Club</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHAT I DO -->
+        <section class="section section-dark">
+            <div class="container">
+                <h2 data-aos="fade-right">What I Actually Do</h2>
+                <div class="skills-grid">
+                    <div class="skill-card" data-aos="fade-up" data-aos-delay="0">
+                        <div class="skill-header">
+                            <i class="fas fa-building"></i>
+                            <h3>By Day</h3>
+                        </div>
+                        <p>Lead IT & Development Architect at Mavic Business Solutions (Security & Loss Prevention Kenya — Nakuru). Building internal systems, apps, and tech infrastructure for security operations.</p>
+                    </div>
+                    <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="skill-header">
+                            <i class="fas fa-moon"></i>
+                            <h3>By Night</h3>
+                        </div>
+                        <p>Building Weaponize, SmarTQue, BotMa, and contracting for government clients. Open source, AI agents, and developer tools.</p>
+                    </div>
+                    <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="skill-header">
+                            <i class="fas fa-shield-alt"></i>
+                            <h3>By Philosophy</h3>
+                        </div>
+                        <p>Paranoid-first design. Threat model everything. Ship anyway. Audit logs are non-negotiable.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS BUILT -->
+        <section class="section">
+            <div class="container">
+                <h2 data-aos="fade-right">What I've Built (That Matters)</h2>
+                <div class="skills-grid">
+                    <div class="skill-card" data-aos="fade-up" data-aos-delay="0">
+                        <div class="skill-header">
+                            <i class="fas fa-shield-alt"></i>
+                            <h3>VERIFY</h3>
+                        </div>
+                        <p>Recruitment management system for county government — thousands of applicants processed. Currently live.</p>
+                        <div class="skill-tags"><span class="skill-tag">Flask</span><span class="skill-tag">SQLite</span><span class="skill-tag">RBAC</span><span class="skill-tag">Audit Logs</span></div>
+                    </div>
+                    <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="skill-header">
+                            <i class="fas fa-hospital-user"></i>
+                            <h3>SmarTQue</h3>
+                        </div>
+                        <p>Hospital queue management + M-Pesa payments. Real-time queue tracking, appointment booking, telemedicine.</p>
+                        <div class="skill-tags"><span class="skill-tag">Flask</span><span class="skill-tag">Flutter</span><span class="skill-tag">M-Pesa</span><span class="skill-tag">JWT</span></div>
+                    </div>
+                    <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="skill-header">
+                            <i class="fas fa-robot"></i>
+                            <h3>BotMa</h3>
+                        </div>
+                        <p>Multi-agent AI email system. Classifies content, takes autonomous actions, learns from feedback.</p>
+                        <div class="skill-tags"><span class="skill-tag">Python</span><span class="skill-tag">LLM</span><span class="skill-tag">AI Agents</span></div>
+                    </div>
+                    <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="skill-header">
+                            <i class="fas fa-mobile-alt"></i>
+                            <h3>Weaponize</h3>
+                        </div>
+                        <p>Turn your Android into a development IDE. Neovim + LSP + Git on Termux. 2k+ stars.</p>
+                        <div class="skill-tags"><span class="skill-tag">Lua</span><span class="skill-tag">Neovim</span><span class="skill-tag">Termux</span><span class="skill-tag">Bash</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PHILOSOPHY -->
+        <section class="section section-dark">
+            <div class="container">
+                <h2 data-aos="fade-right">The Philosophy</h2>
+                <div class="philosophy-grid">
+                    <div class="philosophy-card" data-aos="flip-left" data-aos-delay="0">
+                        <div class="philosophy-icon"><i class="fas fa-ship"></i></div>
+                        <div class="philosophy-title">Ship First</div>
+                        <div class="philosophy-text">Perfect is the enemy of deployed. Get it live. Iterate.</div>
+                    </div>
+                    <div class="philosophy-card" data-aos="flip-left" data-aos-delay="100">
+                        <div class="philosophy-icon"><i class="fas fa-eye"></i></div>
+                        <div class="philosophy-title">Paranoid by Default</div>
+                        <div class="philosophy-text">Threat model everything. Assume breach. Audit everything.</div>
+                    </div>
+                    <div class="philosophy-card" data-aos="flip-left" data-aos-delay="200">
+                        <div class="philosophy-icon"><i class="fas fa-book"></i></div>
+                        <div class="philosophy-title">Documentation is a Feature</div>
+                        <div class="philosophy-text">If they can't use it, you didn't build it.</div>
+                    </div>
+                    <div class="philosophy-card" data-aos="flip-left" data-aos-delay="300">
+                        <div class="philosophy-icon"><i class="fas fa-globe"></i></div>
+                        <div class="philosophy-title">Build in Public</div>
+                        <div class="philosophy-text">All repos open. The failures. The ugly code. The lessons.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUOTE -->
+        <section class="section">
+            <div class="container">
+                <div class="quote-block" data-aos="zoom-in">
+                    <div class="quote-text">"You don't need permission to code. You need a computer? Use a cyber cafe. Use your phone. Use whatever. Just start."</div>
+                    <div class="quote-author">— Tony Ngugi (KenyanCyber)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CURRENT STATUS -->
+        <section class="section section-dark">
+            <div class="container">
+                <h2 data-aos="fade-right">Currently</h2>
+                <div class="skills-grid">
+                    <div class="skill-card" data-aos="fade-up" data-aos-delay="0">
+                        <div class="skill-header">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h3>Student</h3>
+                        </div>
+                        <p>Muranga University of Technology — pursuing studies while building production systems.</p>
+                    </div>
+                    <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="skill-header">
+                            <i class="fas fa-microchip"></i>
+                            <h3>Learning Rust</h3>
+                        </div>
+                        <p>Building BotMah — a raw HTTP server from scratch. No frameworks. Just sockets and parsing.</p>
+                    </div>
+                    <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="skill-header">
+                            <i class="fas fa-handshake"></i>
+                            <h3>Available for</h3>
+                        </div>
+                        <p>Freelance: Flask backends, Flutter apps, security audits. Contracts: Government systems, healthcare platforms, payment integrations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="section" id="contact">
+            <div class="container">
+                <h2 data-aos="fade-right">Find Me</h2>
+                <div class="contact-bar" data-aos="fade-up" data-aos-delay="100">
+                    <a href="https://github.com/tonyngugi997" target="_blank" class="contact-link">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="mailto:hello@kenyancyber.co.ke" class="contact-link">
+                        <i class="fas fa-envelope"></i> Email
+                    </a>
+                    <a href="#" class="contact-link">
+                        <i class="fas fa-map-marker-alt"></i> Nakuru, Kenya
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- ACKNOWLEDGMENT SECTION -->
+<section class="acknowledgment">
+    <div class="container">
+        <div class="acknowledgment-card">
+            <div class="acknowledgment-icon">
+                <i class="fas fa-chalkboard-user"></i>
+            </div>
+            <div class="acknowledgment-content">
+                <h3>To the ones who actually mattered</h3>
+                <p>
+                    I've had plenty of teachers. Most of them just did their job — sucked at it bythaway .
+                    <strong>Mr. Kimani</strong> and <strong>Mrs Fedis Njiru</strong> 
+                    didn't just do their job. They opened a door I didn't know existed.
+                </p>
+                <p>
+                    They introduced me to computer studies when I was in high school. 
+                    They saw something in me before I saw it myself. 
+                    They didn't just teach me — they <strong>ignited</strong> me.
+                </p>
+                <p class="acknowledgment-bold">
+                    Every line of code I write. Every system I break. Every tool I build.
+                    <br>It started with them.
+                </p>
+                <div class="acknowledgment-signature">
+                    <span>— Tony "KenyanCyber" Ngugi</span>
+                </div>
+            </div>
+            <div class="acknowledgment-quote">
+                <i class="fas fa-quote-right"></i>
+                <span>Not all teachers are equal. These two are why I exist in this field.</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PARENT ACKNOWLEDGMENT SECTION -->
+<section class="parent-acknowledgment">
+    <div class="container">
+        <div class="parent-card">
+            <!-- Holy glow effect -->
+            <div class="parent-glow"></div>
+            
+            <div class="parent-header">
+                <div class="parent-crown">
+                    <i class="fas fa-crown"></i>
+                    <i class="fas fa-crown"></i>
+                    <i class="fas fa-crown"></i>
+                </div>
+                <h2>The Real Ones</h2>
+                <p class="parent-subtitle">The ones who funded every cyber cafe session</p>
+            </div>
+
+            <div class="parent-images">
+                <div class="parent-image-card">
+                    <div class="image-frame">
+                        <img src="/static/images/parents/mom.jpg" alt="My Mother — The Believer">
+                        <div class="image-glow"></div>
+                    </div>
+                    <div class="image-caption">
+                        <h4>My Mother</h4>
+                        <p>"She never understood what I was doing on that computer. But she handed me money for the cyber cafe anyway. Every single time."</p>
+                        <span class="parent-badge">The Believer</span>
+                    </div>
+                </div>
+
+                <div class="parent-image-card">
+                    <div class="image-frame">
+                        <img src="/static/images/parents/dad.jpg" alt="My Father — The Enforcer">
+                        <div class="image-glow"></div>
+                    </div>
+                    <div class="image-caption">
+                        <h4>My Father</h4>
+                        <p>"He told me 'if you're going to be on that computer, be the best at it.' I took that personally."</p>
+                        <span class="parent-badge">The Enforcer</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="parent-testimonial">
+                <i class="fas fa-quote-left"></i>
+                <p>
+                    <strong>"We don't understand what he does. Code? Hacking? Servers? We just know he disappears into that screen and comes out speaking another language. But we've never doubted him. He said he'd be the best. And he is. That's our son."</strong>
+                </p>
+                <div class="testimonial-author">
+                    <span>— His Parents</span>
+                    <span class="author-title">(They have no idea what GitHub is but they're proud anyway)</span>
+                </div>
+            </div>
+
+            <div class="parent-footer">
+                <div class="cyber-cafe-stats">
+                    <div class="stat">
+                        <span class="stat-number">∞</span>
+                        <span class="stat-label">Cyber cafe hours funded</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Unconditional belief</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">0</span>
+                        <span class="stat-label">Questions asked</span>
+                    </div>
+                </div>
+                <div class="parent-swear">
+                    <i class="fas fa-hand-fist"></i>
+                    <span>"They can swear I'm the best at this shit. And they're right."</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="copyright">
+                    © 2024 Tony Ngugi (KenyanCyber) — <span class="mono">security that ships</span>
+                </div>
+                <div class="footer-links">
+                    <a href="/">Home</a>
+                    <a href="/projects">Projects</a>
+                    <a href="/about">About</a>
+                    <a href="/skills">Skills</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+</html>

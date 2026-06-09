@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    
+    <title>Skills & Tech Arsenal | Tony Ngugi (KenyanCyber)</title>
+    <meta name="description" content="Security researcher and full-stack developer with production experience in Python, Flutter, Rust, Flask, Neovim, M-Pesa integration, and government systems.">
+    <meta name="keywords" content="Tony Ngugi, KenyanCyber, skills, Python, Flutter, Rust, Flask, Neovim, Termux, M-Pesa, security researcher">
+    <meta name="author" content="Tony Ngugi (KenyanCyber)">
+    <meta name="robots" content="index, follow">
+    
+    <link rel="canonical" href="https://kenyancyber.co.ke/skills">
+    
+    <meta property="og:title" content="Skills & Tech Arsenal | Tony Ngugi">
+    <meta property="og:description" content="Production skills: Python, Flutter, Rust, Flask, M-Pesa, government systems, and security research.">
+    <meta property="og:url" content="https://kenyancyber.co.ke/skills">
+    <meta property="og:type" content="website">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Skills & Tech Arsenal | Tony Ngugi">
+    <meta name="twitter:description" content="Production skills: Python, Flutter, Rust, Flask, M-Pesa, government systems.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;600;700&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-0: #0a0a0a;
+            --bg-1: #111111;
+            --bg-2: #1a1a1a;
+            --bg-3: #242424;
+            --text-1: #ffffff;
+            --text-2: #e4e4e7;
+            --text-3: #a1a1a6;
+            --accent-cyan: #00d4ff;
+            --accent-magenta: #ff00ff;
+            --accent-red: #ff0055;
+            --accent-green: #00ff88;
+            --border-color: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg-0);
+            color: var(--text-1);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .mono {
+            font-family: 'Space Mono', monospace;
+            letter-spacing: 0.05em;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        @media (max-width: 640px) {
+            .container { padding: 0 1.5rem; }
+        }
+
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .glow-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            mix-blend-mode: screen;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .glow-orb-1 {
+            width: 500px;
+            height: 500px;
+            background: rgba(0, 212, 255, 0.1);
+            top: -200px;
+            right: -200px;
+            animation: float1 20s ease-in-out infinite;
+        }
+
+        .glow-orb-2 {
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 0, 85, 0.08);
+            bottom: -150px;
+            left: -150px;
+            animation: float2 25s ease-in-out infinite;
+        }
+
+        @keyframes float1 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(100px, -100px); }
+        }
+
+        @keyframes float2 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-80px, 80px); }
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(10, 10, 10, 0.92);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo a {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: 0.1em;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-3);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-cyan);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            padding: 4rem 0;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid var(--accent-cyan);
+            border-radius: 2rem;
+            font-size: 0.85rem;
+            color: var(--accent-cyan);
+            margin-bottom: 1.5rem;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Skills Grid */
+        .skills-section {
+            position: relative;
+            padding: 2rem 0 6rem;
+            z-index: 1;
+        }
+
+        .skills-category {
+            margin-bottom: 3rem;
+        }
+
+        .skills-category h2 {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .skills-category h2 i {
+            color: var(--accent-cyan);
+            font-size: 1.8rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(255, 0, 85, 0.02));
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.1);
+        }
+
+        .skill-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-header i {
+            font-size: 2rem;
+            color: var(--accent-cyan);
+        }
+
+        .skill-header h3 {
+            margin: 0;
+        }
+
+        .skill-evidence {
+            font-size: 0.85rem;
+            color: var(--text-3);
+            margin-top: 0.8rem;
+            padding-top: 0.8rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .skill-evidence i {
+            color: var(--accent-green);
+            font-size: 0.7rem;
+            margin-right: 0.3rem;
+        }
+
+        .proficiency {
+            display: inline-block;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            background: rgba(0, 212, 255, 0.2);
+            border-radius: 1rem;
+            margin-left: 0.5rem;
+            font-family: 'Space Mono', monospace;
+        }
+
+        footer {
+            position: relative;
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 0;
+            background: rgba(10, 10, 10, 0.8);
+            z-index: 1;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .copyright {
+            color: var(--text-3);
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-3);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { gap: 1.5rem; }
+            .skills-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-bg"></div>
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="/">KenyanCyber</a>
+            </div>
+            <nav class="nav-links">
+                <a href="/">Home</a>
+                <a href="/projects">Projects</a>
+                <a href="/skills">Skills</a>
+                <a href="/#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-terminal"></i>
+                        <span>TECHNICAL ARSENAL</span>
+                    </div>
+                    <h1>
+                        Skills that <span class="highlight">ship</span><br>
+                        to production
+                    </h1>
+                    <p style="font-size: 1.2rem; color: var(--text-2); max-width: 700px;">
+                        Not theoretical. Every skill listed here has been used to build, deploy, and maintain production systems with real users.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills-section">
+            <div class="container">
+                
+                <!-- Languages -->
+                <div class="skills-category">
+                    <h2><i class="fas fa-code"></i> Languages</h2>
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <div class="skill-header">
+                                <i class="fab fa-python"></i>
+                                <h3>Python <span class="proficiency">Primary</span></h3>
+                            </div>
+                            <p>Flask backends, AI agents, shell implementations, CLI tools.</p>
+                            <div class="skill-evidence">
+                                <i class="fas fa-check"></i> BotMa (AI agent)<br>
+                                <i class="fas fa-check"></i> VERIFY (Flask + SQLite)<br>
+                                <i class="fas fa-check"></i> SHELL (Python shell implementation)
+                            </div>
+                        </div>
+                        
+                        <div class="skill-card">
+                            <div class="skill-header">
+                                <i class="fab fa-dart"></i>
+                                <h3>Dart <span class="proficiency">Primary</span></h3>
+                            </div>
+                            <p>Cross-platform mobile development with Flutter.</p>
+                            <div class="skill-evidence">
+                                <i class="fas fa-check"></i> SmarTQue (full mobile app)<br>
+                                <i class="fas fa-check"></i> AttendX
+                            </div>
+                        </div>
+                        
+                        <div class="skill-card">
+                            <div class="skill-header">
+                                <i class="fab fa-js"></i>
+                                <h3>JavaScript/TypeScript <span class="proficiency">Intermediate</span></h3>
+                            </div>
+                            <p>Node.js backends, Express APIs.</p>
+                            <div class="skill-evidence">
+                                <i class="fas fa-check"></i> SmarTQue backend services<br>
+                                <i class="fas fa-check"></i> SERVER_BACKEND
+                            </div>
+                        </div>
+                        
+                        <div class="skill-card">
+                            <div class="skill-header">
+                                <i class="fas fa-microchip"></i>
+                                <h3>Rust <span class="proficiency">Learning</span></h3>
+                            </div>
+                            <p>Systems programming, raw HTTP servers.</p>
+                            <div class="skill-evidence">
+                                <i class="fas fa-check"></i> BotMah (raw HTTP server)<br>
+                                <i class="fas fa-check"></i> MaDDoG
+                            </div>
+                        </div>
+                        
+                        <div class="skill-card">
+                            <div class="skill-header">
+                                <i class="fas fa-terminal"></i>
+                                <h3>Bash/Lua <span class="proficiency">Intermediate</span></h3>
+                            </div>
+                            <p>Shell scripting, Neovim configuration.</p>
+                            <div class="skill-evidence">
+                                <i class="fas fa-check"></i> Weaponize (Neovim config in Lua)<br>
+                                <i class="fas fa-check"></i> custom-termux.sh<br>
+                                <i class="fas fa-check"></i> Shell_scripts
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frameworks & Tools -->
+                <div class="skills-category">
+                    <h2><i class="fas fa-layer-group"></i> Frameworks & Tools</h2>
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <div class="skill-header">
+                                <i class="fas fa-flask"></i>
+                                <h3>Flask</h3>
+                            </div>
+                            <p>REST APIs, authentication, database integration.</p>
+                            <div class="skill-evidence">
+                                <i class="fas fa-check"></i> SmarTQue backend<br>
+                                <i class="fas fa-check"></i> VERIFY<br>
+                                <i class="fas fa-check"></i> BotMa
+                            </div>
+                        </div>
+                        
+                        <div class="skill-card">
+                            <div class="skill-header">
+                                <i class="fab fa-flutter"></i>
+                                <h3>Flutter</h3>
+                            </div>
+                            <p>Cross-platform mobile apps, state management, API integration.</p>
+                            <div class="skill-evidence">
+                                <i class="fas fa-check"></i> SmarTQue mobile app<br>
+                                <i class="fas fa-check"></i> AttendX
+                            </div>
+                        </div>
+                        
+                        <div class="skill-card">
+                            <div class="skill-header">
+                                <i class="fas fa-database"></i>
+                                <h3>SQLite</h3>
+                            </div>
+                            <p>Production databases for government and healthcare systems.</p>
+                            <div class="skill-evidence">
+                                <i class="fas fa-check"></i> SmarTQue<br>
+                                <i class="fas fa-check"></i> VERIFY (10k+ applicants)<br>
+                                <i class="fas fa-check"></i> BotMa
+                            </div>
+                        </div>
+                        
+                        <div class="skill-card">
+                            <div class="skill-header">
+                                <i class="fas fa-robot"></i>
+                                <h3>LLM/AI Integration</h3>
+                            </div>
+                            <p>Multi-agent systems, classification, feedback loops.</p>
+                            <div class="skill-evidence">
+                                <i class="fas fa-check"></i> BotMa (email classification agent)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DevOps & Deployment -->
+                <div class="skills-category">
+                    <h2><i class="fas fa-cloud"></i> DevOps & Deployment</h2>
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <div class="skill-header">
+                                <i class="fas fa-cloud"></i>
+                                <h3>Railway / Render</h3>
+                            </div>
+                            <p>Production hosting for backend services.</p>
+                            <div class="skill-evidence">
+                                <i class="fas fa-check"></i> SmarTQue backend on Railway<br>
+                                <i class="fas fa-check"></i> SmarTQue payments on Render
+                            </div>
+                        </div>
+                        
+                        <div class="skill-card">
+                            <div class="skill-header">
+                                <i class="fas fa-server"></i>
+                                <h3>PythonAnywhere</h3>
+                            </div>
+                            <p>Government and AI system deployments.</p>
+                            <div class="skill-evidence">
+                                <i class="fas fa-check"></i> VERIFY (government client)<br>
+                                <i class="fas fa-check"></i> BotMa (AI agent)
+                            </div>
+                        </div>
+                        
+                        <div class="skill-card">
+                            <div class="skill-header">
+                                <i class="fab fa-github"></i>
+                                <h3>Git & GitHub</h3>
+                            </div>
+                            <p>Version control, open source maintenance, CI/CD.</p>
+                            <div class="skill-evidence">
+                                <i class="fas fa-check"></i> 17 active repositories<br>
+                                <i class="fas fa-check"></i> Weaponize (open source)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security & Payments -->
+                <div class="skills-category">
+                    <h2><i class="fas fa-shield-alt"></i> Security & Payments</h2>
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <div class="skill-header">
+                                <i class="fas fa-lock"></i>
+                                <h3>Authentication & Security</h3>
+                            </div>
+                            <p>JWT, OTP verification, password hashing, RBAC.</p>
+                            <div class="skill-evidence">
+                                <i class="fas fa-check"></i> SmarTQue (JWT + OTP)<br>
+                                <i class="fas fa-check"></i> VERIFY (4-tier RBAC + audit logs)
+                            </div>
+                        </div>
+                        
+                        <div class="skill-card">
+                            <div class="skill-header">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <h3>M-Pesa Daraja API</h3>
+                            </div>
+                            <p>STK Push integration, callback handling, idempotency.</p>
+                            <div class="skill-evidence">
+                                <i class="fas fa-check"></i> SmarTQue (production payment flows)
+                            </div>
+                        </div>
+                        
+                        <div class="skill-card">
+                            <div class="skill-header">
+                                <i class="fas fa-envelope"></i>
+                                <h3>Email Systems</h3>
+                            </div>
+                            <p>Nodemailer, SMTP, OTP delivery, email parsing.</p>
+                            <div class="skill-evidence">
+                                <i class="fas fa-check"></i> SmarTQue (verification emails)<br>
+                                <i class="fas fa-check"></i> BotMa (inbox monitoring)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Development Environment -->
+                <div class="skills-category">
+                    <h2><i class="fas fa-laptop-code"></i> Development Environment</h2>
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <div class="skill-header">
+                                <i class="fas fa-terminal"></i>
+                                <h3>Neovim</h3>
+                            </div>
+                            <p>Daily driver. Built Weaponize config from scratch.</p>
+                            <div class="skill-evidence">
+                                <i class="fas fa-check"></i> Weaponize (complete IDE config)<br>
+                                <i class="fas fa-check"></i> Lua configuration, LSP setup
+                            </div>
+                        </div>
+                        
+                        <div class="skill-card">
+                            <div class="skill-header">
+                                <i class="fab fa-android"></i>
+                                <h3>Termux</h3>
+                            </div>
+                            <p>Android terminal development environment.</p>
+                            <div class="skill-evidence">
+                                <i class="fas fa-check"></i> Weaponize (custom Termux setup)<br>
+                                <i class="fas fa-check"></i> Mobile-first development workflow
+                            </div>
+                        </div>
+                        
+                        <div class="skill-card">
+                            <div class="skill-header">
+                                <i class="fab fa-linux"></i>
+                                <h3>Linux Command Line</h3>
+                            </div>
+                            <p>Bash scripting, system administration.</p>
+                            <div class="skill-evidence">
+                                <i class="fas fa-check"></i> custom-termux.sh<br>
+                                <i class="fas fa-check"></i> Shell_scripts (2k stars)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="copyright">
+                    © 2024 Tony Ngugi (KenyanCyber) — <span class="mono">security that ships</span>
+                </div>
+                <div class="footer-links">
+                    <a href="/">Home</a>
+                    <a href="/projects">Projects</a>
+                    <a href="/skills">Skills</a>
+                    <a href="/#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
