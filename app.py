@@ -40,7 +40,15 @@ def init_db():
             )
         ''')
         conn.commit()
+from flask import send_from_directory
 
+@app.route('/sitemap.xml')
+def serve_sitemap():
+    return send_from_directory('.', 'sitemap.xml')
+
+@app.route('/robots.txt')
+def serve_robots():
+    return send_from_directory('.', 'robots.txt')
 def calculate_read_time(content):
     words = len(content.split())
     return max(1, round(words / 200))
