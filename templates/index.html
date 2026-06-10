@@ -1440,6 +1440,31 @@
         display: flex !important;
     }
 }
+        /* FORCE OVERRIDE - Desktop only */
+@media (min-width: 1025px) {
+    .mobile-sidebar {
+        display: none !important;
+    }
+    .menu-toggle {
+        display: none !important;
+    }
+    .sidebar-overlay {
+        display: none !important;
+    }
+    .sidebar-profile {
+        display: none !important;
+    }
+    .sidebar-social {
+        display: none !important;
+    }
+}
+
+/* FORCE OVERRID*/
+@media (max-width: 1024px) {
+    .desktop-nav {
+        display: none !important;
+    }
+}
     </style>
 </head>
 <body>
