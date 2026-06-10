@@ -11,24 +11,24 @@
     <meta name="author" content="Tony Ngugi">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
     
-    <!-- Canonical (Fixed to tony-ngugi.co.ke) -->
+    <!-- Canonical -->
     <link rel="canonical" href="https://tony-ngugi.co.ke/">
     
-    <!-- Open Graph (Fixed URLs) -->
+    <!-- Open Graph -->
     <meta property="og:title" content="Tony Ngugi | Security Researcher & Penetration Tester in Kenya">
     <meta property="og:description" content="Security researcher and penetration tester in Kenya. CTF walkthroughs, Rust, Flask, M-Pesa. Available for hire.">
     <meta property="og:url" content="https://tony-ngugi.co.ke/">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://tony-ngugi.co.ke/assets/og-image.jpg">
     
-    <!-- Twitter Card (Fixed URLs) -->
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Tony Ngugi | Security Researcher & Pentester Kenya">
     <meta name="twitter:description" content="Security researcher and penetration tester in Kenya. CTF walkthroughs, Rust, Flask, M-Pesa.">
     <meta name="twitter:site" content="@kenyancyber">
     <meta name="twitter:image" content="https://tony-ngugi.co.ke/assets/twitter-image.jpg">
     
-    <!-- Structured Data (JSON-LD) - Fixed to tony-ngugi.co.ke -->
+    <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -69,7 +69,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* YOUR EXISTING CSS - COPY IT HERE (ALL YOUR STYLES REMAIN EXACTLY THE SAME) */
         /* ===== DESIGN SYSTEM ===== */
         :root {
             /* Color palette - High contrast, luxury dark mode */
@@ -1035,240 +1034,241 @@
             position: relative;
             z-index: 1;
         }
+        
         /* ===== ADVANCED HEADER - DESKTOP ===== */
-@media (min-width: 1024px) {
-    .nav-links {
-        display: flex;
-        gap: 1.5rem;
-        align-items: center;
-    }
+        @media (min-width: 1024px) {
+            .nav-links {
+                display: flex;
+                gap: 1.5rem;
+                align-items: center;
+            }
 
-    .nav-links a {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        text-decoration: none;
-        color: var(--text-3);
-        font-weight: 500;
-        font-size: 0.9rem;
-        transition: all 0.3s ease;
-        position: relative;
-        padding: 0.5rem 0.75rem;
-        border-radius: 0.5rem;
-    }
+            .nav-links a {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                text-decoration: none;
+                color: var(--text-3);
+                font-weight: 500;
+                font-size: 0.9rem;
+                transition: all 0.3s ease;
+                position: relative;
+                padding: 0.5rem 0.75rem;
+                border-radius: 0.5rem;
+            }
 
-    /* Icon only by default */
-    .nav-links a .nav-text {
-        display: none;
-    }
+            /* Icon only by default */
+            .nav-links a .nav-text {
+                display: none;
+            }
 
-    .nav-links a i {
-        font-size: 1.2rem;
-        min-width: 1.5rem;
-        text-align: center;
-    }
+            .nav-links a i {
+                font-size: 1.2rem;
+                min-width: 1.5rem;
+                text-align: center;
+            }
 
-    /* Show text on hover */
-    .nav-links a:hover .nav-text {
-        display: inline;
-    }
+            /* Show text on hover */
+            .nav-links a:hover .nav-text {
+                display: inline;
+            }
 
-    .nav-links a:hover {
-        color: var(--accent-cyan);
-        background: rgba(0, 212, 255, 0.1);
-        gap: 0.75rem;
-    }
+            .nav-links a:hover {
+                color: var(--accent-cyan);
+                background: rgba(0, 212, 255, 0.1);
+                gap: 0.75rem;
+            }
 
-    /* Active page indicator */
-    .nav-links a.active {
-        color: var(--accent-cyan);
-    }
+            /* Active page indicator */
+            .nav-links a.active {
+                color: var(--accent-cyan);
+            }
 
-    .nav-links a.active::after {
-        content: '';
-        position: absolute;
-        bottom: -2px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 4px;
-        height: 4px;
-        background: var(--accent-cyan);
-        border-radius: 50%;
-    }
-}
+            .nav-links a.active::after {
+                content: '';
+                position: absolute;
+                bottom: -2px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 4px;
+                height: 4px;
+                background: var(--accent-cyan);
+                border-radius: 50%;
+            }
+        }
 
-/* ===== MOBILE HEADER (≤1024px) ===== */
-@media (max-width: 1024px) {
-    .nav-links {
-        position: fixed;
-        top: 0;
-        left: -280px;
-        width: 280px;
-        height: 100vh;
-        background: rgba(10, 10, 15, 0.98);
-        backdrop-filter: blur(20px);
-        border-right: 1px solid rgba(0, 212, 255, 0.2);
-        flex-direction: column;
-        justify-content: flex-start;
-        gap: 0;
-        padding: 2rem 0;
-        transition: left 0.3s cubic-bezier(0.2, 0.8, 0.3, 1);
-        z-index: 1001;
-        overflow-y: auto;
-    }
+        /* ===== MOBILE HEADER (≤1024px) ===== */
+        @media (max-width: 1024px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: -280px;
+                width: 280px;
+                height: 100vh;
+                background: rgba(10, 10, 15, 0.98);
+                backdrop-filter: blur(20px);
+                border-right: 1px solid rgba(0, 212, 255, 0.2);
+                flex-direction: column;
+                justify-content: flex-start;
+                gap: 0;
+                padding: 2rem 0;
+                transition: left 0.3s cubic-bezier(0.2, 0.8, 0.3, 1);
+                z-index: 1001;
+                overflow-y: auto;
+            }
 
-    .nav-links.active {
-        left: 0;
-    }
+            .nav-links.active {
+                left: 0;
+            }
 
-    .nav-links a {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        padding: 1rem 1.5rem;
-        text-decoration: none;
-        color: var(--text-2);
-        font-weight: 500;
-        font-size: 1rem;
-        transition: all 0.3s ease;
-        border-left: 3px solid transparent;
-    }
+            .nav-links a {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                padding: 1rem 1.5rem;
+                text-decoration: none;
+                color: var(--text-2);
+                font-weight: 500;
+                font-size: 1rem;
+                transition: all 0.3s ease;
+                border-left: 3px solid transparent;
+            }
 
-    .nav-links a i {
-        font-size: 1.3rem;
-        min-width: 1.8rem;
-        color: var(--accent-cyan);
-    }
+            .nav-links a i {
+                font-size: 1.3rem;
+                min-width: 1.8rem;
+                color: var(--accent-cyan);
+            }
 
-    .nav-links a .nav-text {
-        display: inline;
-    }
+            .nav-links a .nav-text {
+                display: inline;
+            }
 
-    .nav-links a:hover {
-        background: rgba(0, 212, 255, 0.1);
-        border-left-color: var(--accent-cyan);
-        color: var(--accent-cyan);
-    }
+            .nav-links a:hover {
+                background: rgba(0, 212, 255, 0.1);
+                border-left-color: var(--accent-cyan);
+                color: var(--accent-cyan);
+            }
 
-    .nav-links a.active {
-        background: rgba(0, 212, 255, 0.15);
-        border-left-color: var(--accent-cyan);
-        color: var(--accent-cyan);
-    }
+            .nav-links a.active {
+                background: rgba(0, 212, 255, 0.15);
+                border-left-color: var(--accent-cyan);
+                color: var(--accent-cyan);
+            }
 
-    /* Sidebar header / profile area */
-    .sidebar-profile {
-        padding: 1.5rem;
-        margin-bottom: 1rem;
-        border-bottom: 1px solid rgba(0, 212, 255, 0.1);
-        text-align: center;
-    }
+            /* Sidebar header / profile area */
+            .sidebar-profile {
+                padding: 1.5rem;
+                margin-bottom: 1rem;
+                border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+                text-align: center;
+            }
 
-    .sidebar-profile .avatar {
-        width: 60px;
-        height: 60px;
-        margin: 0 auto 0.75rem;
-        background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.8rem;
-        font-weight: 700;
-        color: var(--bg-0);
-    }
+            .sidebar-profile .avatar {
+                width: 60px;
+                height: 60px;
+                margin: 0 auto 0.75rem;
+                background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.8rem;
+                font-weight: 700;
+                color: var(--bg-0);
+            }
 
-    .sidebar-profile h4 {
-        font-size: 1rem;
-        margin-bottom: 0.25rem;
-    }
+            .sidebar-profile h4 {
+                font-size: 1rem;
+                margin-bottom: 0.25rem;
+            }
 
-    .sidebar-profile p {
-        font-size: 0.7rem;
-        color: var(--text-3);
-    }
+            .sidebar-profile p {
+                font-size: 0.7rem;
+                color: var(--text-3);
+            }
 
-    /* Sidebar social links */
-    .sidebar-social {
-        margin-top: auto;
-        padding: 1.5rem;
-        border-top: 1px solid rgba(0, 212, 255, 0.1);
-        display: flex;
-        justify-content: center;
-        gap: 1.5rem;
-    }
+            /* Sidebar social links */
+            .sidebar-social {
+                margin-top: auto;
+                padding: 1.5rem;
+                border-top: 1px solid rgba(0, 212, 255, 0.1);
+                display: flex;
+                justify-content: center;
+                gap: 1.5rem;
+            }
 
-    .sidebar-social a {
-        padding: 0;
-        color: var(--text-3);
-        font-size: 1.2rem;
-        transition: all 0.3s ease;
-    }
+            .sidebar-social a {
+                padding: 0;
+                color: var(--text-3);
+                font-size: 1.2rem;
+                transition: all 0.3s ease;
+            }
 
-    .sidebar-social a:hover {
-        color: var(--accent-cyan);
-        transform: translateY(-3px);
-    }
+            .sidebar-social a:hover {
+                color: var(--accent-cyan);
+                transform: translateY(-3px);
+            }
 
-    /* Hamburger button */
-    .menu-toggle {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        background: rgba(0, 212, 255, 0.1);
-        border: 1px solid rgba(0, 212, 255, 0.3);
-        border-radius: 0.5rem;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
+            /* Hamburger button */
+            .menu-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 40px;
+                background: rgba(0, 212, 255, 0.1);
+                border: 1px solid rgba(0, 212, 255, 0.3);
+                border-radius: 0.5rem;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
 
-    .menu-toggle i {
-        font-size: 1.3rem;
-        color: var(--accent-cyan);
-    }
+            .menu-toggle i {
+                font-size: 1.3rem;
+                color: var(--accent-cyan);
+            }
 
-    .menu-toggle:hover {
-        background: rgba(0, 212, 255, 0.2);
-        transform: scale(1.02);
-    }
+            .menu-toggle:hover {
+                background: rgba(0, 212, 255, 0.2);
+                transform: scale(1.02);
+            }
 
-    /* Overlay */
-    .sidebar-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.6);
-        backdrop-filter: blur(4px);
-        z-index: 1000;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-    }
+            /* Overlay */
+            .sidebar-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.6);
+                backdrop-filter: blur(4px);
+                z-index: 1000;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
 
-    .sidebar-overlay.active {
-        opacity: 1;
-        visibility: visible;
-    }
+            .sidebar-overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
 
-    /* Hide desktop nav on mobile */
-    .nav-links:not(.sidebar-mode) {
-        display: none;
-    }
-}
+            /* Hide desktop nav on mobile */
+            .nav-links:not(.sidebar-mode) {
+                display: none;
+            }
+        }
 
-/* Desktop nav override - show normal */
-@media (min-width: 1025px) {
-    .menu-toggle,
-    .sidebar-overlay,
-    .sidebar-profile,
-    .sidebar-social {
-        display: none;
-    }
-}
+        /* Desktop nav override - show normal */
+        @media (min-width: 1025px) {
+            .menu-toggle,
+            .sidebar-overlay,
+            .sidebar-profile,
+            .sidebar-social {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1277,13 +1277,66 @@
     <div class="glow-orb glow-orb-2"></div>
 
     <header>
-    <div class="nav-container">
-        <div class="logo">
-            <a href="https://tony-ngugi.co.ke/">KenyanCyber</a>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="https://tony-ngugi.co.ke/">KenyanCyber</a>
+            </div>
+            
+            <!-- Desktop Navigation (icons only, text on hover) -->
+            <nav class="nav-links desktop-nav">
+                <a href="https://tony-ngugi.co.ke/">
+                    <i class="fas fa-house"></i>
+                    <span class="nav-text">Home</span>
+                </a>
+                <a href="https://tony-ngugi.co.ke/about">
+                    <i class="fas fa-user-astronaut"></i>
+                    <span class="nav-text">About</span>
+                </a>
+                <a href="https://tony-ngugi.co.ke/skills">
+                    <i class="fas fa-microchip"></i>
+                    <span class="nav-text">Skills</span>
+                </a>
+                <a href="https://tony-ngugi.co.ke/projects">
+                    <i class="fas fa-cubes"></i>
+                    <span class="nav-text">Projects</span>
+                </a>
+                <a href="#experience">
+                    <i class="fas fa-timeline"></i>
+                    <span class="nav-text">Experience</span>
+                </a>
+                <a href="https://tony-ngugi.co.ke/notes">
+                    <i class="fas fa-pen-ruler"></i>
+                    <span class="nav-text">Notes</span>
+                </a>
+                <a href="https://tony-ngugi.co.ke/walkthroughs">
+                    <i class="fas fa-skull"></i>
+                    <span class="nav-text">Walkthroughs</span>
+                </a>
+                <a href="https://tony-ngugi.co.ke/contact">
+                    <i class="fas fa-paper-plane"></i>
+                    <span class="nav-text">Contact</span>
+                </a>
+            </nav>
+
+            <!-- Mobile Hamburger Button -->
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
-        
-        <!-- Desktop Navigation (icons only, text on hover) -->
-        <nav class="nav-links desktop-nav">
+
+        <!-- Mobile Sidebar (hidden by default) -->
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        <nav class="nav-links mobile-sidebar" id="mobileSidebar">
+            <!-- Sidebar Profile -->
+            <div class="sidebar-profile">
+                <div class="avatar">
+                    <i class="fas fa-shield-haltered"></i>
+                </div>
+                <h4>KenyanCyber</h4>
+                <p>security that ships</p>
+            </div>
+
+            <!-- Sidebar Nav Links -->
             <a href="https://tony-ngugi.co.ke/">
                 <i class="fas fa-house"></i>
                 <span class="nav-text">Home</span>
@@ -1316,68 +1369,15 @@
                 <i class="fas fa-paper-plane"></i>
                 <span class="nav-text">Contact</span>
             </a>
-        </nav>
 
-        <!-- Mobile Hamburger Button -->
-        <button class="menu-toggle" id="menuToggle">
-            <i class="fas fa-bars"></i>
-        </button>
-    </div>
-
-    <!-- Mobile Sidebar (hidden by default) -->
-    <div class="sidebar-overlay" id="sidebarOverlay"></div>
-    <nav class="nav-links mobile-sidebar" id="mobileSidebar">
-        <!-- Sidebar Profile -->
-        <div class="sidebar-profile">
-            <div class="avatar">
-                <i class="fas fa-shield-haltered"></i>
+            <!-- Sidebar Social Links -->
+            <div class="sidebar-social">
+                <a href="https://github.com/tonyngugi997" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/tonyngugi997" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:tonyngugi997@gmail.com"><i class="fas fa-envelope"></i></a>
             </div>
-            <h4>KenyanCyber</h4>
-            <p>security that ships</p>
-        </div>
-
-        <!-- Sidebar Nav Links -->
-        <a href="https://tony-ngugi.co.ke/">
-            <i class="fas fa-house"></i>
-            <span class="nav-text">Home</span>
-        </a>
-        <a href="https://tony-ngugi.co.ke/about">
-            <i class="fas fa-user-astronaut"></i>
-            <span class="nav-text">About</span>
-        </a>
-        <a href="https://tony-ngugi.co.ke/skills">
-            <i class="fas fa-microchip"></i>
-            <span class="nav-text">Skills</span>
-        </a>
-        <a href="https://tony-ngugi.co.ke/projects">
-            <i class="fas fa-cubes"></i>
-            <span class="nav-text">Projects</span>
-        </a>
-        <a href="#experience">
-            <i class="fas fa-timeline"></i>
-            <span class="nav-text">Experience</span>
-        </a>
-        <a href="https://tony-ngugi.co.ke/notes">
-            <i class="fas fa-pen-ruler"></i>
-            <span class="nav-text">Notes</span>
-        </a>
-        <a href="https://tony-ngugi.co.ke/walkthroughs">
-            <i class="fas fa-skull"></i>
-            <span class="nav-text">Walkthroughs</span>
-        </a>
-        <a href="https://tony-ngugi.co.ke/contact">
-            <i class="fas fa-paper-plane"></i>
-            <span class="nav-text">Contact</span>
-        </a>
-
-        <!-- Sidebar Social Links -->
-        <div class="sidebar-social">
-            <a href="https://github.com/tonyngugi997" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
-            <a href="https://linkedin.com/in/tonyngugi997" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:tonyngugi997@gmail.com"><i class="fas fa-envelope"></i></a>
-        </div>
-    </nav>
-</header>
+        </nav>
+    </header>
 
     <main>
         <!-- HERO -->
@@ -1566,17 +1566,17 @@
                     </div>
 
                     <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">2019 — 2022</div>
-                        <div class="timeline-title">Self-Taught Security Researcher</div>
-                        <div class="timeline-company">High School / Independent Study</div>
-                        <div class="timeline-description">
-                            Fell in love with computers during computer studies. Taught myself networking, Linux, and penetration testing. 
-                            Spent nights rooting CTF boxes, reading exploit write-ups, and breaking my own lab machines. 
-                            This obsession became the foundation for everything I build and break today.
+                        <div class="timeline-content">
+                            <div class="timeline-date">2019 — 2022</div>
+                            <div class="timeline-title">Self-Taught Security Researcher</div>
+                            <div class="timeline-company">High School / Independent Study</div>
+                            <div class="timeline-description">
+                                Fell in love with computers during computer studies. Taught myself networking, Linux, and penetration testing. 
+                                Spent nights rooting CTF boxes, reading exploit write-ups, and breaking my own lab machines. 
+                                This obsession became the foundation for everything I build and break today.
+                            </div>
                         </div>
                     </div>
-                </div>
                 </div>
             </div>
         </section>
@@ -1654,28 +1654,42 @@
     </footer>
 
     <script>
-
         // ============================================
-        // MOBILE SIDEBAR TOGGLE
+        // MOBILE SIDEBAR TOGGLE - FIXED VERSION
         // ============================================
         const menuToggle = document.getElementById('menuToggle');
         const mobileSidebar = document.getElementById('mobileSidebar');
         const sidebarOverlay = document.getElementById('sidebarOverlay');
 
         function openSidebar() {
+            if (!mobileSidebar || !sidebarOverlay) return;
             mobileSidebar.classList.add('active');
             sidebarOverlay.classList.add('active');
             document.body.style.overflow = 'hidden';
+            console.log('Sidebar opened'); // Debug
         }
 
         function closeSidebar() {
+            if (!mobileSidebar || !sidebarOverlay) return;
             mobileSidebar.classList.remove('active');
             sidebarOverlay.classList.remove('active');
             document.body.style.overflow = '';
+            console.log('Sidebar closed'); // Debug
         }
 
         if (menuToggle) {
-            menuToggle.addEventListener('click', openSidebar);
+            // Remove any existing listeners to prevent duplicates
+            const newToggle = menuToggle.cloneNode(true);
+            menuToggle.parentNode.replaceChild(newToggle, menuToggle);
+            
+            newToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Menu button clicked'); // Debug
+                openSidebar();
+            });
+        } else {
+            console.log('Menu toggle not found');
         }
 
         if (sidebarOverlay) {
@@ -1702,6 +1716,7 @@
                 closeSidebar();
             }
         });
+
         // ============================================
         // SCROLL REVEAL ANIMATION
         // ============================================
@@ -1724,69 +1739,39 @@
         });
 
         // ============================================
-        // FETCH GITHUB STATS FOR PROJECTS
+        // RENDER PROJECTS - FIXED VERSION (No GitHub API)
         // ============================================
-        const projects = [
-            {
-                name: 'weaponize',
-                description: 'Turn your Android phone into a professional development environment. Neovim + Lua + Termux — full IDE experience with LSP, autocompletion, and Git.',
-                tech: ['Lua', 'Neovim', 'Termux', 'Bash'],
-                repo: 'https://github.com/tonyngugi997/weaponize.git',
-                icon: 'fa-mobile-alt'
-            },
-            {
-                name: 'SmarTQue',
-                description: 'Smart Hospital Queue Management System. Full-stack healthcare platform with appointment booking, queue tracking, telemedicine, and payments.',
-                tech: ['Flutter', 'Node.js', 'MongoDB', 'Socket.io'],
-                repo: 'https://github.com/tonyngugi997/smartque.git',
-                icon: 'fa-hospital-user'
-            },
-            {
-                name: 'BotMah',
-                description: 'Raw HTTP server written in Rust from scratch. Advanced systems programming — handling sockets, request parsing, routing, and headers manually.',
-                tech: ['Rust', 'TCP/IP', 'HTTP/1.1'],
-                repo: 'https://github.com/tonyngugi997/botmah.git',
-                icon: 'fa-microchip'
-            }
-        ];
-
-        const fallbackStats = {
-            'weaponize': { stars: 47, forks: 12, issues: 2 },
-            'smartque': { stars: 12, forks: 5, issues: 1 },
-            'botmah': { stars: 8, forks: 3, issues: 4 }
-        };
-
-        async function fetchGitHubStats(repoUrl) {
-            const repoPath = repoUrl.replace('https://github.com/', '').replace('.git', '');
-            const apiUrl = `https://api.github.com/repos/${repoPath}`;
-
-            try {
-                const response = await fetch(apiUrl);
-                if (response.ok) {
-                    const data = await response.json();
-                    return {
-                        stars: data.stargazers_count,
-                        forks: data.forks_count,
-                        issues: data.open_issues_count
-                    };
-                }
-            } catch (e) {
-                console.warn(`Failed to fetch stats for ${repoPath}`);
-            }
-
-            const name = repoUrl.includes('weaponize') ? 'weaponize' :
-                repoUrl.includes('smartque') ? 'smartque' : 'botmah';
-            return fallbackStats[name];
-        }
-
-        async function renderProjects() {
+        function renderProjects() {
             const grid = document.getElementById('projectsGrid');
-            const projectCards = [];
-
-            for (const project of projects) {
-                const stats = await fetchGitHubStats(project.repo);
-                projectCards.push({ ...project, stats });
+            if (!grid) {
+                console.log('Projects grid not found');
+                return;
             }
+            
+            // Your projects with correct repository names
+            const projectCards = [
+                {
+                    name: 'weaponize',
+                    description: 'Turn your Android phone into a professional development environment. Neovim + Lua + Termux — full IDE experience with LSP, autocompletion, and Git.',
+                    tech: ['Lua', 'Neovim', 'Termux', 'Bash'],
+                    repo: 'https://github.com/tonyngugi997/weaponize',
+                    icon: 'fa-mobile-alt'
+                },
+                {
+                    name: 'SmarTQue',
+                    description: 'Smart Hospital Queue Management System. Full-stack healthcare platform with appointment booking, queue tracking, telemedicine, and payments.',
+                    tech: ['Flutter', 'Node.js', 'MongoDB', 'Socket.io'],
+                    repo: 'https://github.com/tonyngugi997/smartque',
+                    icon: 'fa-hospital-user'
+                },
+                {
+                    name: 'BotMa',
+                    description: 'Raw HTTP server written in Rust from scratch. Advanced systems programming — handling sockets, request parsing, routing, and headers manually.',
+                    tech: ['Rust', 'TCP/IP', 'HTTP/1.1'],
+                    repo: 'https://github.com/tonyngugi997/BotMa',
+                    icon: 'fa-microchip'
+                }
+            ];
 
             grid.innerHTML = projectCards.map(project => `
                 <div class="project-card">
@@ -1799,17 +1784,20 @@
                         ${project.tech.map(t => `<span class="tech-tag">${t}</span>`).join('')}
                     </div>
                     <div class="project-stats">
-                        <span><i class="fas fa-star"></i> ${project.stats.stars}</span>
-                        <span><i class="fas fa-code-branch"></i> ${project.stats.forks}</span>
-                        <span><i class="fas fa-bug"></i> ${project.stats.issues}</span>
+                        <span><i class="fas fa-star"></i> ★</span>
+                        <span><i class="fas fa-code-branch"></i> ⎇</span>
+                        <span><i class="fas fa-bug"></i> 🐛</span>
                     </div>
                     <a href="${project.repo}" target="_blank" rel="noopener noreferrer" class="project-link">
                         View on GitHub <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
             `).join('');
+            
+            console.log('Projects rendered successfully'); // Debug
         }
 
+        // Call renderProjects when page loads
         renderProjects();
 
         // ============================================
@@ -1818,7 +1806,7 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
-                if (href !== '#') {
+                if (href !== '#' && href && href !== '#') {
                     e.preventDefault();
                     const target = document.querySelector(href);
                     if (target) {
@@ -1827,6 +1815,8 @@
                 }
             });
         });
+        
+        console.log('All JavaScript loaded successfully'); // Debug
     </script>
 </body>
 </html>
