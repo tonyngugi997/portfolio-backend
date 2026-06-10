@@ -1269,6 +1269,189 @@
                 display: none;
             }
         }
+        /* ===== MOBILE HEADER (≤1024px) ===== */
+@media (max-width: 1024px) {
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: -280px;
+        width: 280px;
+        height: 100vh;
+        background: rgba(10, 10, 15, 0.98);
+        backdrop-filter: blur(20px);
+        border-right: 1px solid rgba(0, 212, 255, 0.2);
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 0;
+        padding: 2rem 0;
+        transition: left 0.3s cubic-bezier(0.2, 0.8, 0.3, 1);
+        z-index: 1001;
+        overflow-y: auto;
+        display: flex !important; /* Force display */
+    }
+
+    .nav-links.active {
+        left: 0 !important; /* Force important to override */
+    }
+
+    .nav-links a {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem 1.5rem;
+        text-decoration: none;
+        color: var(--text-2);
+        font-weight: 500;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        border-left: 3px solid transparent;
+        width: 100%;
+    }
+
+    .nav-links a i {
+        font-size: 1.3rem;
+        min-width: 1.8rem;
+        color: var(--accent-cyan);
+    }
+
+    .nav-links a .nav-text {
+        display: inline;
+    }
+
+    .nav-links a:hover {
+        background: rgba(0, 212, 255, 0.1);
+        border-left-color: var(--accent-cyan);
+        color: var(--accent-cyan);
+    }
+
+    .nav-links a.active {
+        background: rgba(0, 212, 255, 0.15);
+        border-left-color: var(--accent-cyan);
+        color: var(--accent-cyan);
+    }
+
+    /* Sidebar header / profile area */
+    .sidebar-profile {
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+        text-align: center;
+        width: 100%;
+    }
+
+    .sidebar-profile .avatar {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 0.75rem;
+        background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--bg-0);
+    }
+
+    .sidebar-profile h4 {
+        font-size: 1rem;
+        margin-bottom: 0.25rem;
+        color: var(--text-1);
+    }
+
+    .sidebar-profile p {
+        font-size: 0.7rem;
+        color: var(--text-3);
+    }
+
+    /* Sidebar social links */
+    .sidebar-social {
+        margin-top: auto;
+        padding: 1.5rem;
+        border-top: 1px solid rgba(0, 212, 255, 0.1);
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        width: 100%;
+    }
+
+    .sidebar-social a {
+        padding: 0;
+        color: var(--text-3);
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+        width: auto;
+    }
+
+    .sidebar-social a:hover {
+        color: var(--accent-cyan);
+        transform: translateY(-3px);
+    }
+
+    /* Hamburger button */
+    .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: rgba(0, 212, 255, 0.1);
+        border: 1px solid rgba(0, 212, 255, 0.3);
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .menu-toggle i {
+        font-size: 1.3rem;
+        color: var(--accent-cyan);
+    }
+
+    .menu-toggle:hover {
+        background: rgba(0, 212, 255, 0.2);
+        transform: scale(1.02);
+    }
+
+    /* Overlay */
+    .sidebar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(4px);
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        display: block !important;
+    }
+
+    .sidebar-overlay.active {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    /* Hide desktop nav on mobile */
+    .desktop-nav {
+        display: none !important;
+    }
+}
+
+/* Desktop nav override - show normal */
+@media (min-width: 1025px) {
+    .menu-toggle,
+    .sidebar-overlay,
+    .sidebar-profile,
+    .sidebar-social {
+        display: none !important;
+    }
+    
+    .desktop-nav {
+        display: flex !important;
+    }
+}
     </style>
 </head>
 <body>
